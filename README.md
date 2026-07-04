@@ -18,6 +18,8 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 1 | **CLI Calculator**        | A command-line calculator supporting basic and advanced operations           | Utility       |
 | 2 | **Report System**         | A system to generate, manage, and export reports                             | Productivity  |
 | 3 | **Guessing Game**         | Interactive number guessing game with scoring and multiple difficulty levels | Game          |
+| 4 | **Rock Paper Scissor**    | A CLI Rock Paper Scissors game with score tracking                           | Game          |
+
 
 **CLI Calculator
 A simple, robust command-line calculator built in Python.
@@ -53,5 +55,16 @@ Features: Three difficulty levels (Easy / Medium / Hard) with different ranges a
 Possible Future Improvements: Add a timer-based challenge mode
                               Track best scores in a leaderboard file
                               Add a GUI version using Tkinter or Pygame
+                           
+**Rock Paper Scissors game
+A CLI Rock Paper Scissors game with score tracking, a replay loop, and an optional
+"adaptive" computer opponent that tries to counter your most frequent move.
+Features : Accepts full words or short forms (r/p/s)
+          Score tracking across rounds (wins, losses, ties)
+          Replay loop until you choose to stop
+          Two computer difficulty modes:
+          Random — fair, unpredictable
+          Adaptive — tracks your move history and counters your most common choice
+
                               Add a simple GUI (Tkinter) or web version (Flask)
 
