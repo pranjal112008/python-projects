@@ -64,7 +64,27 @@ Features : Accepts full words or short forms (r/p/s)
           Replay loop until you choose to stop
           Two computer difficulty modes:
           Random — fair, unpredictable
-          Adaptive — tracks your move history and counters your most common choice
+          Adaptive — tracks your move history and counters your most common ch
+Possible Future Improvements: Add a "best of N" mode instead of open-ended play
+                              Add Rock Paper Scissors Lizard Spock variant
+                              Track stats across sessions using a save file
 
-                              Add a simple GUI (Tkinter) or web version (Flask)
+**Quiz Game
+A CLI multiple-choice quiz game with score tracking, shuffled questions, and a
+results summary that reviews incorrect answers.
+quiz_random.py — True random selection (fixed local questions)
+Picks each question randomly at the moment it's asked from a slightly
+bigger local pool (7 questions), with no repeats within a round.
+Features: List of multiple-choice questions (easy to extend, in the local versions)
+          Live questions from a huge external question bank (quiz_online.py)
+          Category and difficulty selection (quiz_online.py)
+          Input validation
+          Score tracking and percentage calculation
+          End-of-quiz performance message
+          Review section showing which questions were missed and the correct answers
+          Replay loop
+Possible Future Improvements :Load questions from a JSON or CSV file instead of hardcoding
+                              Add categories/difficulty levels
+                              Add a timer per question
+                              Save high scores to a file
 
