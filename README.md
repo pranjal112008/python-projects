@@ -16,10 +16,10 @@ This repository contains various Python projects ranging from beginner-friendly 
 | # | Project Name              | Description                                                                  | Type          |
 |---|---------------------------|------------------------------------------------------------------------------|---------------|
 | 1 | **CLI Calculator**        | A command-line calculator supporting basic and advanced operations           | Utility       |
-| 2 | **Report System**         | A system to generate, manage, and export reports                             | Productivity  |
+| 2 | **Report System**         | A system to generate, manage, and export reports                             |Productivity   |
 | 3 | **Guessing Game**         | Interactive number guessing game with scoring and multiple difficulty levels | Game          |
 | 4 | **Rock Paper Scissor**    | A CLI Rock Paper Scissors game with score tracking                           | Game          |
-
+| 5 | **Temperature Converter** |A CLI utility that converts temperatures between Celsius, Fahrenheit,                                                                                            and Kelvin with weather condition descriptions                               | Utility       |                                                                                                                              
 
 **CLI Calculator
 A simple, robust command-line calculator built in Python.
@@ -87,4 +87,23 @@ Possible Future Improvements :Load questions from a JSON or CSV file instead of 
                               Add categories/difficulty levels
                               Add a timer per question
                               Save high scores to a file
+
+**Temperature Converter
+A CLI tool to convert between Celsius, Fahrenheit, and Kelvin, with a simple
+"weather condition" description based on the temperature.
+Features: Convert between all 3 temperature scales (6 conversion directions)
+          Input validation (rejects non-numeric input)
+          Prevents invalid Kelvin values (below absolute zero)
+          Describes the temperature in plain language (Freezing / Cold / Mild / Warm / Hot)
+          Menu-driven loop
+Possible Future Improvements:Add a real weather API lookup (e.g. OpenWeatherMap) for actual current temperatures
+                             Add Rankine scale support
+                              Build a small GUI version with Tkinter         
+
+
+
+
+
+
+
 
