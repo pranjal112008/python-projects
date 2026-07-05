@@ -100,8 +100,18 @@ Possible Future Improvements:Add a real weather API lookup (e.g. OpenWeatherMap)
                              Add Rankine scale support
                               Build a small GUI version with Tkinter         
 
-
-
+**Password Generator
+A CLI tool that generates secure, customizable random passwords using Python's
+random and string modules.
+Features:Customizable password length
+         Choose which character types to include: uppercase, lowercase, digits, symbols
+         Guarantees at least one character from each selected type (not just random luck)
+         Password strength rating (Weak / Moderate / Strong / Very Strong)
+         Input validation throughout
+         Loop to generate multiple passwords in one session
+Possible Future Improvements:Add a "Password Manager" mode: save generated passwords (encrypted) to a local file
+                             Add a password strength checker for user-entered passwords, not just generated ones
+                             Add option to exclude ambiguous characters (like l, 1, O, 0)
 
 
 
