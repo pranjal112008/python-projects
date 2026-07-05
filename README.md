@@ -20,7 +20,7 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 3 | **Guessing Game**         | Interactive number guessing game with scoring and multiple difficulty levels | Game          |
 | 4 | **Rock Paper Scissor**    | A CLI Rock Paper Scissors game with score tracking                           | Game          |
 | 5 | **Temperature Converter** |A CLI utility that converts temperatures between Celsius, Fahrenheit,                                                                                            and Kelvin with weather condition descriptions                               | Utility       |                                                                                                                              
-
+| 6 | **Password Generator**    |A CLI security utility that generates strong, customizable random passwords                                                                                      with strength ratings.                                                       | Utility       |
 **CLI Calculator
 A simple, robust command-line calculator built in Python.
 Features : Basic operations: Add, Subtract, Multiply, Divide
