@@ -21,7 +21,8 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 4 | **Rock Paper Scissor**    | A CLI Rock Paper Scissors game with score tracking                           | Game          |
 | 5 | **Temperature Converter** |A CLI utility that converts temperatures between Celsius, Fahrenheit,                                                                                            and Kelvin with weather condition descriptions                               | Utility       |                                                                                                                              
 | 6 | **Password Generator**    |A CLI security utility that generates strong, customizable random passwords                                                                                      with strength ratings.                                                       | Utility       |
-
+| 7 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts
+                                  with persistent storage.                                                     |Productivity   |
 
 
 
@@ -132,6 +133,33 @@ Features:Customizable password length
 Possible Future Improvements:Add a "Password Manager" mode: save generated passwords (encrypted) to a local file
                              Add a password strength checker for user-entered passwords, not just generated ones
                              Add option to exclude ambiguous characters (like l, 1, O, 0)
+
+
+**Contact Book / Phone Book
+A CLI contact manager with persistent storage using JSON. Add, search, update,
+and delete contacts, with data saved between runs.
+
+Features:Add contacts (name, phone, email)
+         View all contacts, sorted alphabetically
+         Search contacts by partial name match
+          Update phone/email for an existing contact
+          Delete a contact (with confirmation)
+          Data persists in contacts.json
+
+Possible Future Improvements :Add contact groups/categories
+                              Add multiple phone numbers per contact
+                              Export contacts to CSV
+                              Add a simple GUI with Tkinter
+
+
+
+
+
+
+
+
+
+
 
 
 
