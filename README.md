@@ -19,9 +19,10 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 2 | **Report System**         | A system to generate, manage, and export reports                             |Productivity   |
 | 3 | **Guessing Game**         | Interactive number guessing game with scoring and multiple difficulty levels | Game          |
 | 4 | **Rock Paper Scissor**    | A CLI Rock Paper Scissors game with score tracking                           | Game          |
-| 5 | **Temperature Converter** |A CLI utility that converts temperatures between Celsius, Fahrenheit,                                                                                            and Kelvin with weather condition descriptions                               | Utility       |                                                                                                                              
-| 6 | **Password Generator**    |A CLI security utility that generates strong, customizable random passwords                                                                                      with strength ratings.                                                       | Utility       |
-| 7 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts
+| 5 |  ** Quiz Game**           | A General knowlege game with some gk question.                               | Game          |
+| 6 |**Temperature Converter**  |A CLI utility that converts temperatures between Celsius, Fahrenheit,                                                                                            and Kelvin with weather condition descriptions                               | Utility       |                                                                                                                              
+| 7 | **Password Generator**    |A CLI security utility that generates strong, customizable random passwords                                                                                      with strength ratings.                                                       | Utility       |
+| 8 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts
                                   with persistent storage.                                                     |Productivity   |
 
 
