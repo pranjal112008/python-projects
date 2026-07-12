@@ -22,9 +22,8 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 5 |  ** Quiz Game**           | A General knowlege game with some gk question.                               | Game          |
 | 6 |**Temperature Converter**  |A CLI utility that converts temperatures between Celsius, Fahrenheit,                                                                                            and Kelvin with weather condition descriptions                               | Utility       |                                                                                                                              
 | 7 | **Password Generator**    |A CLI security utility that generates strong, customizable random passwords                                                                                      with strength ratings.                                                       | Utility       |
-| 8 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts
-                                  with persistent storage.                                                     |Productivity   |
-
+| 8 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts                                                                                    with persistent storage.                                                     |Productivity   |
+| 9 |  **To Do List**           | A CLI task manager with priorities and completion tracking, saved persistently                                                                                 to JSON.                                                                       |Productivity  |
 
 
 
@@ -152,9 +151,21 @@ Possible Future Improvements :Add contact groups/categories
                               Export contacts to CSV
                               Add a simple GUI with Tkinter
 
+**Todo List Manager (CLI) :A command-line task manager with priorities, completion tracking, and
+persistent storage using JSON.
 
-
-
+Features:Add tasks with a priority level (low/medium/high)
+          Auto-incrementing task IDs
+          View all tasks or only pending ones
+          Mark tasks as complete
+          Delete tasks
+          Timestamps each task with its creation date/time
+          Data persists in todos.json
+  
+Possible Future Improvements:Add due dates and sort by urgency
+                             Add task categories/tags
+                             Add editing of existing tasks
+                             Add a GUI or web version
 
 
 
