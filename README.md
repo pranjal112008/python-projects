@@ -24,7 +24,7 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 7 | **Password Generator**    |A CLI security utility that generates strong, customizable random passwords                                                                                      with strength ratings.                                                       | Utility       |
 | 8 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts                                                                                    with persistent storage.                                                     |Productivity   |
 | 9 |  **To Do List**           | A CLI task manager with priorities and completion tracking, saved persistently                                                                                 to JSON.                                                                       |Productivity  |
-
+| 10 |  **Simple ATM**          |An OOP-based CLI banking simulator with PIN-protected accounts, deposits,                                                                                         withdrawals, and transfers                                                   |Productivity  |
 
 
 
@@ -167,7 +167,22 @@ Possible Future Improvements:Add due dates and sort by urgency
                              Add editing of existing tasks
                              Add a GUI or web version
 
+**Simple ATM / Bank System:An object-oriented CLI banking simulator with PIN-protected accounts,
+                           deposits, withdrawals, transfers between accounts, and transaction history —
+                            all persisted to a JSON file.
 
+Features:Create an account with a name and a 4-digit PIN
+         Auto-generated account numbers
+         Login with account number + PIN authentication
+         Deposit and withdraw funds (with balance checks)
+         Transfer funds between two accounts
+         Full transaction history log per account, with timestamps
+         Data persists in accounts.json
+
+Possible Future Improvements:Add PIN change functionality
+                             Add account types (savings vs checking) with different interest rates
+                             Add minimum balance requirements
+                             Encrypt PINs instead of storing them as plain text (important for any real system)
 
 
 
