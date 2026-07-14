@@ -25,6 +25,12 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 8 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts                                                                                    with persistent storage.                                                     |Productivity   |
 | 9 |  **To Do List**           | A CLI task manager with priorities and completion tracking, saved persistently                                                                                 to JSON.                                                                       |Productivity  |
 | 10 |  **Simple ATM**          |An OOP-based CLI banking simulator with PIN-protected accounts, deposits,                                                                                         withdrawals, and transfers                                                   |Productivity  |
+| 11 | **Expense Tracker**      |A CLI tool that logs, categorizes, and summarizes personal expenses with                                                                                        persistent JSON storage.                                                       |Productivity  |
+
+
+
+
+
 
 
 
@@ -184,8 +190,20 @@ Possible Future Improvements:Add PIN change functionality
                              Add minimum balance requirements
                              Encrypt PINs instead of storing them as plain text (important for any real system)
 
+Personal Expense Tracker :A CLI tool to log, categorize, and analyze personal expenses, with persistent
+storage using JSON.
 
+Features: Add expenses with amount, category, note, and auto-recorded date
+          Predefined categories (Food, Transport, Rent, Entertainment, Utilities, Shopping, Other)
+          View all expenses in a table
+          Category-wise summary with percentage breakdown of total spending
+          Delete an expense by ID
+          Data persists in expenses.json
 
+ Possible Future Improvements :Add monthly/weekly filtering and reports
+                               Add a budget limit per category with warnings
+                               Export to CSV for use in Excel/Sheets
+                               Add data visualization (bar chart of spending by category) using matplotlib
 
 
 
