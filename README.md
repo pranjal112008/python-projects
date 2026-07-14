@@ -26,7 +26,7 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 9 |  **To Do List**           | A CLI task manager with priorities and completion tracking, saved persistently                                                                                 to JSON.                                                                       |Productivity  |
 | 10 |  **Simple ATM**          |An OOP-based CLI banking simulator with PIN-protected accounts, deposits,                                                                                         withdrawals, and transfers                                                   |Productivity  |
 | 11 | **Expense Tracker**      |A CLI tool that logs, categorizes, and summarizes personal expenses with                                                                                        persistent JSON storage.                                                       |Productivity  |
-
+| 12 | **Simple Inventory**     |An OOP-based CLI system that tracks stock, sales, restocking, and revenue                                                                                        for a shop, with persistent storage.                                          |Productivity  |
 
 
 
@@ -204,6 +204,33 @@ Features: Add expenses with amount, category, note, and auto-recorded date
                                Add a budget limit per category with warnings
                                Export to CSV for use in Excel/Sheets
                                Add data visualization (bar chart of spending by category) using matplotlib
+
+
+Simple Inventory / Shop Management :An object-oriented CLI system for managing a shop's inventory: add items,
+sell stock, restock, get low-stock alerts, and track total revenue — all
+persisted to a JSON file.
+
+Features: Add items with name, price, and quantity
+          Auto-generated item IDs
+          Sell items (reduces stock, adds to revenue, checks for sufficient stock)
+          Restock items
+          Low-stock alerts (flagged when quantity ≤ 5)
+          Track total revenue across all sales
+          Data persists in inventory.json
+
+
+Possible Future Improvements :Add item categories
+                              Add supplier/purchase cost tracking (to calculate profit, not just revenue)
+                              Add sales history log with timestamps
+                              Add barcode/SKU lookup
+
+
+
+
+
+
+
+
 
 
 
