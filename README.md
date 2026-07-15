@@ -237,7 +237,10 @@ Features: Add books with title, author, and number of copies
           View all currently borrowed books across the library
           Data persists in library.json
 
-
+Possible Future Improvements: Add a separate Member class with borrowing limits and history
+                              Add book search by title/author
+                              Add reservation queue for fully-borrowed books
+                              Send reminders for books nearing their due date
 
 
 
