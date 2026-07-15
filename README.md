@@ -225,6 +225,32 @@ Possible Future Improvements :Add item categories
                               Add barcode/SKU lookup
 
 
+Library Management System :An object-oriented CLI system to manage a library's books and lending:
+add books, issue and return them, track due dates, and calculate late fees —
+all persisted to a JSON file.
+
+Features: Add books with title, author, and number of copies
+          Issue books to members (tracks who has what, and the due date)
+          Prevents issuing when no copies are available
+          Return books with automatic late fee calculation (based on days overdue)
+          View all books with live availability count
+          View all currently borrowed books across the library
+          Data persists in library.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
