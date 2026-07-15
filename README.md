@@ -243,7 +243,8 @@ Possible Future Improvements: Add a separate Member class with borrowing limits 
                               Send reminders for books nearing their due date
 
 
-AUTHOR: PRANJAL JHARIYA
+------------------------------------------------------------------------------------------------------------------------------------------------
+AUTHOR : PRANJAL JHARIYA
 
 
 
