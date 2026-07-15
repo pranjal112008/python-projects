@@ -27,7 +27,7 @@ This repository contains various Python projects ranging from beginner-friendly 
 | 10 |  **Simple ATM**          |An OOP-based CLI banking simulator with PIN-protected accounts, deposits,                                                                                         withdrawals, and transfers                                                   |Productivity  |
 | 11 | **Expense Tracker**      |A CLI tool that logs, categorizes, and summarizes personal expenses with                                                                                        persistent JSON storage.                                                       |Productivity  |
 | 12 | **Simple Inventory**     |An OOP-based CLI system that tracks stock, sales, restocking, and revenue                                                                                        for a shop, with persistent storage.                                          |Productivity  |
-
+| 13 |   **Library**            |An OOP-based CLI system that tracks books, issues/returns, due dates,                                                                                            and late fees, with persistent storage.                                       |Productivity  |
 
 
 
