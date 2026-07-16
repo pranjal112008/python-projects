@@ -48,6 +48,7 @@ Possible Future Improvements :Add a GUI using Tkinter
                               Add calculation history/log to a file
                               Support chained calculations (e.g. 5 + 3 * 2)
 
+
 **Student Report Card System
 A CLI-based student record manager that stores data persistently in a CSV file.
 
@@ -62,6 +63,7 @@ Possible Future Improvements: Add subject-wise marks instead of a single score
                               Add edit/delete student functionality
                               Export report as PDF
 
+
 **Number Guessing Game
 A CLI number guessing game with difficulty levels, limited attempts, and score tracking.
 
@@ -75,6 +77,7 @@ Possible Future Improvements: Add a timer-based challenge mode
                               Track best scores in a leaderboard file
                               Add a GUI version using Tkinter or Pygame
                            
+
 **Rock Paper Scissors game
 A CLI Rock Paper Scissors game with score tracking, a replay loop, and an optional
 "adaptive" computer opponent that tries to counter your most frequent move.
@@ -89,6 +92,7 @@ Features : Accepts full words or short forms (r/p/s)
 Possible Future Improvements: Add a "best of N" mode instead of open-ended play
                               Add Rock Paper Scissors Lizard Spock variant
                               Track stats across sessions using a save file
+
 
 **Quiz Game
 A CLI multiple-choice quiz game with score tracking, shuffled questions, and a
@@ -111,6 +115,7 @@ Possible Future Improvements :Load questions from a JSON or CSV file instead of 
                               Add a timer per question
                               Save high scores to a file
 
+
 **Temperature Converter
 A CLI tool to convert between Celsius, Fahrenheit, and Kelvin, with a simple
 "weather condition" description based on the temperature.
@@ -124,6 +129,7 @@ Features: Convert between all 3 temperature scales (6 conversion directions)
 Possible Future Improvements:Add a real weather API lookup (e.g. OpenWeatherMap) for actual current temperatures
                              Add Rankine scale support
                               Build a small GUI version with Tkinter         
+
 
 **Password Generator
 A CLI tool that generates secure, customizable random passwords using Python's
@@ -139,6 +145,7 @@ Features:Customizable password length
 Possible Future Improvements:Add a "Password Manager" mode: save generated passwords (encrypted) to a local file
                              Add a password strength checker for user-entered passwords, not just generated ones
                              Add option to exclude ambiguous characters (like l, 1, O, 0)
+
 
 
 **Contact Book / Phone Book
@@ -157,6 +164,7 @@ Possible Future Improvements :Add contact groups/categories
                               Export contacts to CSV
                               Add a simple GUI with Tkinter
 
+
 **Todo List Manager (CLI) :A command-line task manager with priorities, completion tracking, and
 persistent storage using JSON.
 
@@ -172,6 +180,7 @@ Possible Future Improvements:Add due dates and sort by urgency
                              Add task categories/tags
                              Add editing of existing tasks
                              Add a GUI or web version
+
 
 **Simple ATM / Bank System:An object-oriented CLI banking simulator with PIN-protected accounts,
                            deposits, withdrawals, transfers between accounts, and transaction history —
@@ -190,7 +199,8 @@ Possible Future Improvements:Add PIN change functionality
                              Add minimum balance requirements
                              Encrypt PINs instead of storing them as plain text (important for any real system)
 
-Personal Expense Tracker :A CLI tool to log, categorize, and analyze personal expenses, with persistent
+
+**Personal Expense Tracker :A CLI tool to log, categorize, and analyze personal expenses, with persistent
 storage using JSON.
 
 Features: Add expenses with amount, category, note, and auto-recorded date
@@ -206,7 +216,8 @@ Features: Add expenses with amount, category, note, and auto-recorded date
                                Add data visualization (bar chart of spending by category) using matplotlib
 
 
-Simple Inventory / Shop Management :An object-oriented CLI system for managing a shop's inventory: add items,
+
+**Simple Inventory / Shop Management :An object-oriented CLI system for managing a shop's inventory: add items,
 sell stock, restock, get low-stock alerts, and track total revenue — all
 persisted to a JSON file.
 
@@ -225,7 +236,8 @@ Possible Future Improvements :Add item categories
                               Add barcode/SKU lookup
 
 
-Library Management System :An object-oriented CLI system to manage a library's books and lending:
+
+**Library Management System :An object-oriented CLI system to manage a library's books and lending:
 add books, issue and return them, track due dates, and calculate late fees —
 all persisted to a JSON file.
 
