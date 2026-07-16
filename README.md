@@ -243,6 +243,15 @@ Possible Future Improvements: Add a separate Member class with borrowing limits 
                               Send reminders for books nearing their due date
 
 
+
+## 🛠️ Tools & Technologies
+
+* Python 3.14.5
+* Visual Studio Code
+* Git
+* GitHub
+
+  
 ------------------------------------------------------------------------------------------------------------------------------------------------
 AUTHOR : PRANJAL JHARIYA
 
