@@ -251,9 +251,15 @@ Possible Future Improvements: Add a separate Member class with borrowing limits 
 * Git
 * GitHub
 
-  
-------------------------------------------------------------------------------------------------------------------------------------------------
-AUTHOR : PRANJAL JHARIYA
+## 📈 Progress
+
+This repository is continuously updated as I complete new topics and practice programs are added.
+
+## 👩‍💻 Author
+
+**Pranjal Jhariya**
+
+
 
 
 
