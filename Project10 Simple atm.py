@@ -38,13 +38,13 @@ class Bank:
                 "INSERT INTO transactions (account_number, action, amount, timestamp) VALUES (?, ?, ?, ?)",
                 (account_number, action, amount, timestamp)
             )
-  def create_account(self, name: str, pin: str) -> str:
+    def create_account(self, name: str, pin: str) -> str:
         if not (pin.isdigit() and len(pin) == 4):
             raise ValueError("PIN must be 4 digits.")
-          account_number = f"ACC{1000 + self.get_account_count() + 1}"
+        account_number = f"ACC{1000 + self.get_account_count() + 1}"
         with self.conn:
             self.conn.execute("INSERT INTO accounts VALUES (?, ?, ?, 0.0)", 
-                            (account_number, name, pin))
+                              (account_number, name, pin))
         print(f"✅ Account created successfully! Your Account Number: {account_number}")
         return account_number
     def get_account_count(self) -> int:
@@ -74,10 +74,10 @@ class Bank:
         account.balance -= amount
         self.log_transaction(account.account_number, "WITHDRAW", amount)
         print(f"✅ Withdrew ₹{amount:.2f}. New Balance: ₹{account.balance:.2f}")
-def transfer(self, sender: Account, receiver_number: str, amount: float):
+    def transfer(self, sender: Account, receiver_number: str, amount: float):
         if amount > sender.balance:
             raise ValueError("Insufficient balance!")
-            cursor = self.conn.execute("SELECT * FROM accounts WHERE account_number = ?", (receiver_number,))
+        cursor = self.conn.execute("SELECT * FROM accounts WHERE account_number = ?", (receiver_number,))
         if not cursor.fetchone():
             raise ValueError("Receiver account not found!")
         with self.conn:
@@ -85,7 +85,7 @@ def transfer(self, sender: Account, receiver_number: str, amount: float):
                             (amount, sender.account_number))
             self.conn.execute("UPDATE accounts SET balance = balance + ? WHERE account_number = ?", 
                             (amount, receiver_number))
-          sender.balance -= amount
+            sender.balance -= amount
         self.log_transaction(sender.account_number, f"TRANSFER TO {receiver_number}", amount)
         self.log_transaction(receiver_number, f"RECEIVED FROM {sender.account_number}", amount)
         print(f"✅ Transferred ₹{amount:.2f} to {receiver_number}")
@@ -156,8 +156,8 @@ def main():
                 elif op == "6":
                     print("Logged out.")
                     break
-       elif choice == "3":
+        elif choice == "3":
             print("Thank you for using Improved ATM!")
             break
-  if __name__ == "__main__":
+if __name__ == "__main__":
     main()
