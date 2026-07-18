@@ -34,7 +34,7 @@ This repository contains various Python projects ranging from beginner-friendly 
 
 
 
-**CLI Calculator
+**1)CLI Calculator
 A simple, robust command-line calculator built in Python.
 
 Features : Basic operations: Add, Subtract, Multiply, Divide
@@ -49,7 +49,7 @@ Possible Future Improvements :Add a GUI using Tkinter
                               Support chained calculations (e.g. 5 + 3 * 2)
 
 
-**Student Report Card System
+**2)Student Report Card System
 A CLI-based student record manager that stores data persistently in a CSV file.
 
 Features: Add students with name and marks
@@ -64,7 +64,7 @@ Possible Future Improvements: Add subject-wise marks instead of a single score
                               Export report as PDF
 
 
-**Number Guessing Game
+**3)Number Guessing Game
 A CLI number guessing game with difficulty levels, limited attempts, and score tracking.
 
 Features: Three difficulty levels (Easy / Medium / Hard) with different ranges and attempt limits
@@ -78,7 +78,7 @@ Possible Future Improvements: Add a timer-based challenge mode
                               Add a GUI version using Tkinter or Pygame
                            
 
-**Rock Paper Scissors game
+**4)Rock Paper Scissors game
 A CLI Rock Paper Scissors game with score tracking, a replay loop, and an optional
 "adaptive" computer opponent that tries to counter your most frequent move.
 
@@ -94,7 +94,7 @@ Possible Future Improvements: Add a "best of N" mode instead of open-ended play
                               Track stats across sessions using a save file
 
 
-**Quiz Game
+**5)Quiz Game
 A CLI multiple-choice quiz game with score tracking, shuffled questions, and a
 results summary that reviews incorrect answers.
 quiz_random.py — True random selection (fixed local questions)
@@ -116,7 +116,7 @@ Possible Future Improvements :Load questions from a JSON or CSV file instead of 
                               Save high scores to a file
 
 
-**Temperature Converter
+**6)Temperature Converter
 A CLI tool to convert between Celsius, Fahrenheit, and Kelvin, with a simple
 "weather condition" description based on the temperature.
 
