@@ -131,7 +131,7 @@ Possible Future Improvements:Add a real weather API lookup (e.g. OpenWeatherMap)
                               Build a small GUI version with Tkinter         
 
 
-**Password Generator
+**7)Password Generator
 A CLI tool that generates secure, customizable random passwords using Python's
 random and string modules.
 
@@ -148,7 +148,7 @@ Possible Future Improvements:Add a "Password Manager" mode: save generated passw
 
 
 
-**Contact Book / Phone Book
+**8)Contact Book / Phone Book
 A CLI contact manager with persistent storage using JSON. Add, search, update,
 and delete contacts, with data saved between runs.
 
@@ -165,7 +165,7 @@ Possible Future Improvements :Add contact groups/categories
                               Add a simple GUI with Tkinter
 
 
-**Todo List Manager (CLI) :A command-line task manager with priorities, completion tracking, and
+**9)Todo List Manager (CLI) :A command-line task manager with priorities, completion tracking, and
 persistent storage using JSON.
 
 Features:Add tasks with a priority level (low/medium/high)
@@ -182,7 +182,7 @@ Possible Future Improvements:Add due dates and sort by urgency
                              Add a GUI or web version
 
 
-**Simple ATM / Bank System:An object-oriented CLI banking simulator with PIN-protected accounts,
+**10)Simple ATM / Bank System:An object-oriented CLI banking simulator with PIN-protected accounts,
                            deposits, withdrawals, transfers between accounts, and transaction history —
                             all persisted to a JSON file.
 
@@ -200,7 +200,7 @@ Possible Future Improvements:Add PIN change functionality
                              Encrypt PINs instead of storing them as plain text (important for any real system)
 
 
-**Personal Expense Tracker :A CLI tool to log, categorize, and analyze personal expenses, with persistent
+**11)Personal Expense Tracker :A CLI tool to log, categorize, and analyze personal expenses, with persistent
 storage using JSON.
 
 Features: Add expenses with amount, category, note, and auto-recorded date
@@ -217,7 +217,7 @@ Features: Add expenses with amount, category, note, and auto-recorded date
 
 
 
-**Simple Inventory / Shop Management :An object-oriented CLI system for managing a shop's inventory: add items,
+**12)Simple Inventory / Shop Management :An object-oriented CLI system for managing a shop's inventory: add items,
 sell stock, restock, get low-stock alerts, and track total revenue — all
 persisted to a JSON file.
 
@@ -237,7 +237,7 @@ Possible Future Improvements :Add item categories
 
 
 
-**Library Management System :An object-oriented CLI system to manage a library's books and lending:
+**13Library Management System :An object-oriented CLI system to manage a library's books and lending:
 add books, issue and return them, track due dates, and calculate late fees —
 all persisted to a JSON file.
 
