@@ -34,7 +34,7 @@ This repository contains various Python projects ranging from beginner-friendly 
 
 
 
-**1)CLI Calculator
+1)CLI Calculator
 A simple, robust command-line calculator built in Python.
 
 Features : Basic operations: Add, Subtract, Multiply, Divide
@@ -49,7 +49,7 @@ Possible Future Improvements :Add a GUI using Tkinter
                               Support chained calculations (e.g. 5 + 3 * 2)
 
 
-**2)Student Report Card System
+2)Student Report Card System
 A CLI-based student record manager that stores data persistently in a CSV file.
 
 Features: Add students with name and marks
@@ -64,7 +64,7 @@ Possible Future Improvements: Add subject-wise marks instead of a single score
                               Export report as PDF
 
 
-**3)Number Guessing Game
+3)Number Guessing Game
 A CLI number guessing game with difficulty levels, limited attempts, and score tracking.
 
 Features: Three difficulty levels (Easy / Medium / Hard) with different ranges and attempt limits
