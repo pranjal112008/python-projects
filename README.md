@@ -78,7 +78,7 @@ Possible Future Improvements: Add a timer-based challenge mode
                               Add a GUI version using Tkinter or Pygame
                            
 
-**4)Rock Paper Scissors game
+4)Rock Paper Scissors game
 A CLI Rock Paper Scissors game with score tracking, a replay loop, and an optional
 "adaptive" computer opponent that tries to counter your most frequent move.
 
@@ -94,7 +94,7 @@ Possible Future Improvements: Add a "best of N" mode instead of open-ended play
                               Track stats across sessions using a save file
 
 
-**5)Quiz Game
+5)Quiz Game
 A CLI multiple-choice quiz game with score tracking, shuffled questions, and a
 results summary that reviews incorrect answers.
 quiz_random.py — True random selection (fixed local questions)
@@ -116,7 +116,7 @@ Possible Future Improvements :Load questions from a JSON or CSV file instead of 
                               Save high scores to a file
 
 
-**6)Temperature Converter
+6)Temperature Converter
 A CLI tool to convert between Celsius, Fahrenheit, and Kelvin, with a simple
 "weather condition" description based on the temperature.
 
