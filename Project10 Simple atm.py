@@ -41,10 +41,17 @@ class Bank:
     def create_account(self, name: str, pin: str) -> str:
         if not (pin.isdigit() and len(pin) == 4):
             raise ValueError("PIN must be 4 digits.")
-        account_number = f"ACC{1000 + self.get_account_count() + 1}"
         with self.conn:
-            self.conn.execute("INSERT INTO accounts VALUES (?, ?, ?, 0.0)", 
-                              (account_number, name, pin))
+            cursor = self.conn.execute(
+                "INSERT INTO accounts (account_number, name, pin, balance) VALUES (NULL, ?, ?, 0.0)",
+                (name, pin)
+            )
+            new_id = cursor.lastrowid
+            account_number = f"ACC{1000 + new_id}"
+            self.conn.execute(
+                "UPDATE accounts SET account_number = ? WHERE rowid = ?",
+                (account_number, new_id)
+            )
         print(f"✅ Account created successfully! Your Account Number: {account_number}")
         return account_number
     def get_account_count(self) -> int:
