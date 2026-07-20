@@ -31,7 +31,6 @@ class LibraryDB:
     def __init__(self):
         self.conn = sqlite3.connect(DB_FILE)
         self.create_tables()
-
     def create_tables(self):
         with self.conn:
             self.conn.execute('''
@@ -102,7 +101,15 @@ def main():
         if choice == "1":
             title = input("Title: ").strip()
             author = input("Author: ").strip()
-            copies = int(input("Copies: "))
+            while True:
+                try:
+                    copies = int(input("Copies: "))
+                    if copies <= 0:
+                        print("❌ Copies must be a positive whole number.")
+                        continue
+                    break
+                except ValueError:
+                    print("❌ Invalid input. Please enter a whole number.")
             book = db.add_book(title, author, copies)
             print(f"✅ Book added with ID: {book.book_id}")
         elif choice == "2":
@@ -115,7 +122,11 @@ def main():
             for b in results:
                 print(f"ID: {b.book_id} | {b.title} by {b.author}")
         elif choice == "4":
-            book_id = int(input("Book ID: "))
+            try:
+                book_id = int(input("Book ID: "))
+            except ValueError:
+                print("❌ Invalid Book ID.")
+                continue
             user = input("Member Name: ").strip()
             try:
                 due = db.issue_book(book_id, user)
@@ -123,14 +134,18 @@ def main():
             except ValueError as e:
                 print(f"❌ Error: {e}")
         elif choice == "5":
-            book_id = int(input("Book ID: "))
+            try:
+                book_id = int(input("Book ID: "))
+            except ValueError:
+                print("❌ Invalid Book ID.")
+                continue
             user = input("Member Name: ").strip()
             try:
                 days, fee = db.return_book(book_id, user)
                 print(f"✅ Returned. Late days: {days} | Fee: ₹{fee:.2f}")
             except ValueError as e:
                 print(f"❌ Error: {e}")
-         elif choice == "6":
+        elif choice == "6":
             print("Goodbye!")
             break
 if __name__ == "__main__":
