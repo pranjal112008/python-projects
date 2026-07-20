@@ -1,324 +1,281 @@
-# python-projects
-A collection of Python projects, scripts, and practice exercises for learning and building real-world applications.
-# python-projects
-A collection of Python projects, scripts, and practice exercises for learning and building real-world applications.
-
 # Python Projects
-A collection of practical Python projects for learning, skill-building, and fun.
+
+A collection of practical Python projects for learning, skill-building, and showcasing real-world CLI applications — spanning simple utilities to OOP-based systems with persistent storage.
 
 ## About
 
-This repository contains various Python projects ranging from beginner-friendly games to useful tools. It was created to organize and showcase my Python development journey. 
-
-
-## Projects
-
-| # | Project Name              | Description                                                                  | Type          |
-|---|---------------------------|------------------------------------------------------------------------------|---------------|
-| 1 | **CLI Calculator**        | A command-line calculator supporting basic and advanced operations           | Utility       |
-| 2 | **Report System**         | A system to generate, manage, and export reports                             |Productivity   |
-| 3 | **Guessing Game**         | Interactive number guessing game with scoring and multiple difficulty levels | Game          |
-| 4 | **Rock Paper Scissor**    | A CLI Rock Paper Scissors game with score tracking                           | Game          |
-| 5 |  ** Quiz Game**           | A General knowlege game with some gk question.                               | Game          |
-| 6 |**Temperature Converter**  |A CLI utility that converts temperatures between Celsius, Fahrenheit,                                                                                            and Kelvin with weather condition descriptions                               | Utility       |                                                                                                                              
-| 7 | **Password Generator**    |A CLI security utility that generates strong, customizable random passwords                                                                                      with strength ratings.                                                       | Utility       |
-| 8 |  **Contact Book**         | A CLI productivity tool that stores, searches, updates, and deletes contacts                                                                                    with persistent storage.                                                     |Productivity   |
-| 9 |  **To Do List**           | A CLI task manager with priorities and completion tracking, saved persistently                                                                                 to JSON.                                                                       |Productivity  |
-| 10 |  **Simple ATM**          |An OOP-based CLI banking simulator with PIN-protected accounts, deposits,                                                                                         withdrawals, and transfers                                                   |Productivity  |
-| 11 | **Expense Tracker**      |A CLI tool that logs, categorizes, and summarizes personal expenses with                                                                                        persistent JSON storage.                                                       |Productivity  |
-| 12 | **Simple Inventory**     |An OOP-based CLI system that tracks stock, sales, restocking, and revenue                                                                                        for a shop, with persistent storage.                                          |Productivity  |
-| 13 |   **Library**            |An OOP-based CLI system that tracks books, issues/returns, due dates,                                                                                            and late fees, with persistent storage.                                       |Productivity  |
-
-
-
-
-
-
-1) CLI Calculator
-A simple, robust command-line calculator built in Python.
-
-Features : Basic operations: Add, Subtract, Multiply, Divide
-          Extended operations: Modulo, Power, Square Root
-          Input validation (no crashes on bad input)
-          Handles division/modulo by zero gracefully
-          Loops until the user chooses to exit
-          Clean, function-based design
-
-Possible Future Improvements :Add a GUI using Tkinter
-                              Add calculation history/log to a file
-                              Support chained calculations (e.g. 5 + 3 * 2)
-
-
-2) Student Report Card System
-A CLI-based student record manager that stores data persistently in a CSV file.
-
-Features: Add students with name and marks
-          Auto-assigns letter grade (A/B/C/D/F)
-          View all students in a formatted table
-          Search for a student by name
-          Generate a class summary report (average, highest, lowest, pass/fail count)
-          Data persists across runs using students.csv
-
-Possible Future Improvements: Add subject-wise marks instead of a single score
-                              Add edit/delete student functionality
-                              Export report as PDF
-
-
-3) Number Guessing Game
-A CLI number guessing game with difficulty levels, limited attempts, and score tracking.
-
-Features: Three difficulty levels (Easy / Medium / Hard) with different ranges and attempt limits
-          Higher/lower hints after each guess
-          Score tracking across multiple rounds
-          Input validation
-          Play again loop
-
-Possible Future Improvements: Add a timer-based challenge mode
-                              Track best scores in a leaderboard file
-                              Add a GUI version using Tkinter or Pygame
-                           
-
-4) Rock Paper Scissors game
-A CLI Rock Paper Scissors game with score tracking, a replay loop, and an optional
-"adaptive" computer opponent that tries to counter your most frequent move.
-
-Features : Accepts full words or short forms (r/p/s)
-          Score tracking across rounds (wins, losses, ties)
-          Replay loop until you choose to stop
-          Two computer difficulty modes:
-          Random — fair, unpredictable
-          Adaptive — tracks your move history and counters your most common ch
-
-Possible Future Improvements: Add a "best of N" mode instead of open-ended play
-                              Add Rock Paper Scissors Lizard Spock variant
-                              Track stats across sessions using a save file
-
-
-5) Quiz Game
-A CLI multiple-choice quiz game with score tracking, shuffled questions, and a
-results summary that reviews incorrect answers.
-quiz_random.py — True random selection (fixed local questions)
-Picks each question randomly at the moment it's asked from a slightly
-bigger local pool (7 questions), with no repeats within a round.
-
-Features: List of multiple-choice questions (easy to extend, in the local versions)
-          Live questions from a huge external question bank (quiz_online.py)
-          Category and difficulty selection (quiz_online.py)
-          Input validation
-          Score tracking and percentage calculation
-          End-of-quiz performance message
-          Review section showing which questions were missed and the correct answers
-          Replay loop
-
-Possible Future Improvements :Load questions from a JSON or CSV file instead of hardcoding
-                              Add categories/difficulty levels
-                              Add a timer per question
-                              Save high scores to a file
-
-
-6) Temperature Converter
-A CLI tool to convert between Celsius, Fahrenheit, and Kelvin, with a simple
-"weather condition" description based on the temperature.
-
-Features: Convert between all 3 temperature scales (6 conversion directions)
-          Input validation (rejects non-numeric input)
-          Prevents invalid Kelvin values (below absolute zero)
-          Describes the temperature in plain language (Freezing / Cold / Mild / Warm / Hot)
-          Menu-driven loop
-
-Possible Future Improvements:Add a real weather API lookup (e.g. OpenWeatherMap) for actual current temperatures
-                             Add Rankine scale support
-                              Build a small GUI version with Tkinter         
-
-
-7) Password Generator
-A CLI tool that generates secure, customizable random passwords using Python's
-random and string modules.
-
-Features:Customizable password length
-         Choose which character types to include: uppercase, lowercase, digits, symbols
-         Guarantees at least one character from each selected type (not just random luck)
-         Password strength rating (Weak / Moderate / Strong / Very Strong)
-         Input validation throughout
-         Loop to generate multiple passwords in one session
-
-Possible Future Improvements:Add a "Password Manager" mode: save generated passwords (encrypted) to a local file
-                             Add a password strength checker for user-entered passwords, not just generated ones
-                             Add option to exclude ambiguous characters (like l, 1, O, 0)
-
-
-
-8) Contact Book / Phone Book
-A CLI contact manager with persistent storage using JSON. Add, search, update,
-and delete contacts, with data saved between runs.
-
-Features:Add contacts (name, phone, email)
-         View all contacts, sorted alphabetically
-         Search contacts by partial name match
-          Update phone/email for an existing contact
-          Delete a contact (with confirmation)
-          Data persists in contacts.json
-
-Possible Future Improvements :Add contact groups/categories
-                              Add multiple phone numbers per contact
-                              Export contacts to CSV
-                              Add a simple GUI with Tkinter
-
-
-9) Todo List Manager (CLI) :A command-line task manager with priorities, completion tracking, and
-persistent storage using JSON.
-
-Features:Add tasks with a priority level (low/medium/high)
-          Auto-incrementing task IDs
-          View all tasks or only pending ones
-          Mark tasks as complete
-          Delete tasks
-          Timestamps each task with its creation date/time
-          Data persists in todos.json
-  
-Possible Future Improvements:Add due dates and sort by urgency
-                             Add task categories/tags
-                             Add editing of existing tasks
-                             Add a GUI or web version
-
-
-10) Simple ATM / Bank System:An object-oriented CLI banking simulator with PIN-protected accounts,
-                           deposits, withdrawals, transfers between accounts, and transaction history —
-                            all persisted to a JSON file.
-
-Features:Create an account with a name and a 4-digit PIN
-         Auto-generated account numbers
-         Login with account number + PIN authentication
-         Deposit and withdraw funds (with balance checks)
-         Transfer funds between two accounts
-         Full transaction history log per account, with timestamps
-         Data persists in accounts.json
-
-Possible Future Improvements:Add PIN change functionality
-                             Add account types (savings vs checking) with different interest rates
-                             Add minimum balance requirements
-                             Encrypt PINs instead of storing them as plain text (important for any real system)
-
-
-11) Personal Expense Tracker :A CLI tool to log, categorize, and analyze personal expenses, with persistent
-storage using JSON.
-
-Features: Add expenses with amount, category, note, and auto-recorded date
-          Predefined categories (Food, Transport, Rent, Entertainment, Utilities, Shopping, Other)
-          View all expenses in a table
-          Category-wise summary with percentage breakdown of total spending
-          Delete an expense by ID
-          Data persists in expenses.json
-
- Possible Future Improvements :Add monthly/weekly filtering and reports
-                               Add a budget limit per category with warnings
-                               Export to CSV for use in Excel/Sheets
-                               Add data visualization (bar chart of spending by category) using matplotlib
-
-
-
-12) Simple Inventory / Shop Management :An object-oriented CLI system for managing a shop's inventory: add items,
-sell stock, restock, get low-stock alerts, and track total revenue — all
-persisted to a JSON file.
-
-Features: Add items with name, price, and quantity
-          Auto-generated item IDs
-          Sell items (reduces stock, adds to revenue, checks for sufficient stock)
-          Restock items
-          Low-stock alerts (flagged when quantity ≤ 5)
-          Track total revenue across all sales
-          Data persists in inventory.json
-
-
-Possible Future Improvements :Add item categories
-                              Add supplier/purchase cost tracking (to calculate profit, not just revenue)
-                              Add sales history log with timestamps
-                              Add barcode/SKU lookup
-
-
-
-13) Library Management System :An object-oriented CLI system to manage a library's books and lending:
-add books, issue and return them, track due dates, and calculate late fees —
-all persisted to a JSON file.
-
-Features: Add books with title, author, and number of copies
-          Issue books to members (tracks who has what, and the due date)
-          Prevents issuing when no copies are available
-          Return books with automatic late fee calculation (based on days overdue)
-          View all books with live availability count
-          View all currently borrowed books across the library
-          Data persists in library.json
-
-Possible Future Improvements: Add a separate Member class with borrowing limits and history
-                              Add book search by title/author
-                              Add reservation queue for fully-borrowed books
-                              Send reminders for books nearing their due date
-
-
-
-## 🛠️ Tools & Technologies
-
-* Python 3.14.5
-* Visual Studio Code
-* Git
-* GitHub
-
-## 📈 Progress
-
-This repository is continuously updated as I complete new topics and practice programs are added.
-
-## 👩‍💻 Author
+This repository documents my Python development journey, from foundational scripts to fully structured, portfolio-ready projects. Each project lives in its own subfolder, is self-contained, and includes input validation, error handling, and (where relevant) persistent data storage.
+
+## Project Index
+
+| # | Project                                                            | Description                                                | Type         | Storage |
+|---|--------------------------------------------------------------------|------------------------------------------------------------|--------------|---------|
+| 1 | [CLI Calculator](#1-cli-calculator)                                | Command-line calculator with basic and advanced operations | Utility      | —       |
+| 2 | [Student Report Card System](#2-student-report-card-system)        | Manages student records, grades, and class summaries       | Productivity | CSV     |
+| 3 | [Number Guessing Game](#3-number-guessing-game)                    | Guessing game with difficulty levels and scoring           | Game         | —       |
+| 4 | [Rock Paper Scissors](#4-rock-paper-scissors)                      | RPS with score tracking and an adaptive AI opponent        | Game         | —       |
+| 5 | [Quiz Game](#5-quiz-game)                                          | Multiple-choice general knowledge quiz                     | Game         | —       |
+| 6 | [Temperature Converter](#6-temperature-converter)                  | Converts between Celsius, Fahrenheit, and Kelvin           | Utility      | —       |
+| 7 | [Password Generator](#7-password-generator)                        | Generates secure, customizable random passwords            | Utility      | —       |
+| 8 | [Contact Book](#8-contact-book)                                    | Stores, searches, updates, and deletes contacts            | Productivity | JSON    |
+| 9 | [Todo List Manager](#9-todo-list-manager)                          | Task manager with priorities and completion tracking       | Productivity | JSON    |
+| 10 | [Simple ATM / Bank System](#10-simple-atm--bank-system)           | OOP banking simulator with PIN auth, deposits, transfers   | Productivity | SQLite  |
+| 11 | [Personal Expense Tracker](#11-personal-expense-tracker)          | Logs, categorizes, and summarizes expenses                 | Productivity | JSON    |
+| 12 | [Simple Inventory / Shop Management](#12-simple-inventory--shop-management) | Tracks stock, sales, restocking, and revenue     | Productivity | JSON    |
+| 13 | [Library Management System](#13-library-management-system)        | Tracks books, issues/returns, due dates, and late fees     | Productivity | SQLite  |
+
+---
+
+### 1. CLI Calculator
+A simple, robust command-line calculator.
+
+**Features**
+- Basic operations: Add, Subtract, Multiply, Divide
+- Extended operations: Modulo, Power, Square Root
+- Input validation — no crashes on bad input
+- Graceful handling of division/modulo by zero
+- Loops until the user chooses to exit
+
+**Possible future improvements**
+- GUI version using Tkinter
+- Calculation history/log saved to a file
+- Support for chained calculations (e.g. `5 + 3 * 2`)
+
+### 2. Student Report Card System
+A CLI-based student record manager with persistent storage in a CSV file.
+
+**Features**
+- Add students with name and marks
+- Auto-assigns letter grade (A/B/C/D/F)
+- View all students in a formatted table
+- Search for a student by name
+- Class summary report (average, highest, lowest, pass/fail count)
+- Data persists across runs in `students.csv`
+
+**Possible future improvements**
+- Subject-wise marks instead of a single score
+- Edit/delete student functionality
+- Export report as PDF
+
+### 3. Number Guessing Game
+A CLI guessing game with difficulty levels, limited attempts, and score tracking.
+
+**Features**
+- Three difficulty levels (Easy / Medium / Hard) with different ranges and attempt limits
+- Higher/lower hints after each guess
+- Score tracking across multiple rounds
+- Input validation and a replay loop
+
+**Possible future improvements**
+- Timer-based challenge mode
+- Leaderboard saved to a file
+- GUI version using Tkinter or Pygame
+
+### 4. Rock Paper Scissors
+A CLI Rock Paper Scissors game with score tracking, a replay loop, and an optional adaptive computer opponent.
+
+**Features**
+- Accepts full words or short forms (`r`/`p`/`s`)
+- Score tracking across rounds (wins, losses, ties)
+- Two computer difficulty modes:
+  - **Random** — fair, unpredictable
+  - **Adaptive** — tracks your move history and counters your most common choice
+- Replay loop until you choose to stop
+
+**Possible future improvements**
+- "Best of N" mode instead of open-ended play
+- Rock Paper Scissors Lizard Spock variant
+- Session stats saved to a file
+
+### 5. Quiz Game
+A CLI multiple-choice quiz with score tracking, shuffled questions, and a results summary reviewing incorrect answers. Includes a variant that pulls live questions from the Open Trivia Database API.
+
+**Features**
+- Local question pool with no repeats within a round
+- Optional live-question mode via the Open Trivia Database API (category/difficulty selection)
+- Input validation
+- Score tracking and percentage calculation
+- End-of-quiz performance message
+- Review section showing missed questions and correct answers
+- Replay loop
+
+**Possible future improvements**
+- Load questions from a JSON or CSV file instead of hardcoding
+- Timer per question
+- Save high scores to a file
+
+### 6. Temperature Converter
+A CLI tool to convert between Celsius, Fahrenheit, and Kelvin, with a plain-language description of the temperature.
+
+**Features**
+- Convert between all 3 scales (6 conversion directions)
+- Input validation (rejects non-numeric input)
+- Prevents invalid Kelvin values (below absolute zero)
+- Describes the temperature in plain language (Freezing / Cold / Mild / Warm / Hot)
+- Menu-driven loop
+
+**Possible future improvements**
+- Real weather API lookup (e.g. OpenWeatherMap) for current temperatures
+- Rankine scale support
+- Small GUI version with Tkinter
+
+### 7. Password Generator
+A CLI tool that generates secure, customizable random passwords using `random` and `string`.
+
+**Features**
+- Customizable password length
+- Choose character types to include: uppercase, lowercase, digits, symbols
+- Guarantees at least one character from each selected type
+- Password strength rating (Weak / Moderate / Strong / Very Strong)
+- Input validation throughout
+- Generate multiple passwords in one session
+
+**Possible future improvements**
+- "Password Manager" mode: save generated passwords (encrypted) to a local file
+- Strength checker for user-entered passwords, not just generated ones
+- Option to exclude ambiguous characters (e.g. `l`, `1`, `O`, `0`)
+
+### 8. Contact Book
+A CLI contact manager with persistent storage in JSON.
+
+**Features**
+- Add contacts (name, phone, email)
+- View all contacts, sorted alphabetically
+- Search contacts by partial name match
+- Update phone/email for an existing contact
+- Delete a contact (with confirmation)
+- Data persists in `contacts.json`
+
+**Possible future improvements**
+- Contact groups/categories
+- Multiple phone numbers per contact
+- Export contacts to CSV
+- Simple GUI with Tkinter
+
+### 9. Todo List Manager
+A CLI task manager with priorities, completion tracking, and persistent storage in JSON.
+
+**Features**
+- Add tasks with a priority level (low/medium/high)
+- Auto-incrementing task IDs
+- View all tasks or only pending ones
+- Mark tasks as complete
+- Delete tasks
+- Timestamps each task with its creation date/time
+- Data persists in `todos.json`
+
+**Possible future improvements**
+- Due dates with sorting by urgency
+- Task categories/tags
+- Editing of existing tasks
+- GUI or web version
+
+### 10. Simple ATM / Bank System
+An object-oriented CLI banking simulator with PIN-protected accounts, deposits, withdrawals, and transfers between accounts, backed by a **SQLite** database.
+
+**Features**
+- Create an account with a name and a 4-digit PIN
+- Auto-generated, collision-safe account numbers
+- Login with account number + PIN authentication
+- Deposit and withdraw funds (with balance checks)
+- Transfer funds between two accounts
+- Full transaction history log per account, with timestamps
+- Data persists in `bank.db` (SQLite)
+
+**Possible future improvements**
+- PIN change functionality
+- Account types (savings vs. checking) with different interest rates
+- Minimum balance requirements
+- Hash/encrypt PINs instead of storing them in plain text (essential for any real system)
+
+### 11. Personal Expense Tracker
+A CLI tool to log, categorize, and analyze personal expenses, with persistent storage in JSON.
+
+**Features**
+- Add expenses with amount, category, note, and auto-recorded date
+- Predefined categories (Food, Transport, Rent, Entertainment, Utilities, Shopping, Other)
+- View all expenses in a table
+- Category-wise summary with percentage breakdown
+- Delete an expense by ID
+- Data persists in `expenses.json`
+
+**Possible future improvements**
+- Monthly/weekly filtering and reports
+- Budget limit per category with warnings
+- Export to CSV for use in Excel/Sheets
+- Spending visualizations (bar chart by category) using matplotlib
+
+### 12. Simple Inventory / Shop Management
+An object-oriented CLI system for managing a shop's inventory, with persistent storage in JSON.
+
+**Features**
+- Add items with name, price, and quantity
+- Auto-generated item IDs
+- Sell items (reduces stock, adds to revenue, checks for sufficient stock)
+- Restock items
+- Low-stock alerts (flagged when quantity ≤ 5)
+- Track total revenue across all sales
+- Data persists in `inventory.json`
+
+**Possible future improvements**
+- Item categories
+- Supplier/purchase cost tracking (to calculate profit, not just revenue)
+- Sales history log with timestamps
+- Barcode/SKU lookup
+
+### 13. Library Management System
+An object-oriented CLI system to manage a library's books and lending, backed by a **SQLite** database.
+
+**Features**
+- Add books with title, author, and number of copies
+- Issue books to members (tracks who has what, and the due date)
+- Prevents issuing when no copies are available
+- Return books with automatic late fee calculation (based on days overdue)
+- Search books by title/author
+- View all books with live availability count
+- Data persists in `library.db` (SQLite)
+
+**Possible future improvements**
+- Separate `Member` class with borrowing limits and history
+- Reservation queue for fully-borrowed books
+- Reminders for books nearing their due date
+
+---
+
+## Repository Structure
+
+```
+python-projects/
+├── Project1_CLI_Calculator/
+├── Project2_Report_System/
+├── Project3_Number_Guessing_Game/
+├── Project4_Rock_Paper_Scissors/
+├── Project5_Quiz_Game/
+├── Project6_Temperature_Converter/
+├── Project7_Password_Generator/
+├── Project8_Contact_Book/
+├── Project9_Todo_List/
+├── Project10_Simple_ATM/
+├── Project11_Expense_Tracker/
+├── Project12_Simple_Inventory/
+├── Project13_Library_Management/
+└── README.md
+```
+
+Each subfolder contains the project's script(s), and larger projects (Math Utils Toolkit, multi-file OOP systems) separate logic, CLI, and tests where applicable.
+
+## Tools & Technologies
+
+- Python 3
+- Visual Studio Code
+- Git & GitHub
+- SQLite3 (for ATM and Library systems)
+- `requests` (for the live Quiz Game API mode)
+
+## Progress
+
+This repository is updated continuously as new topics are learned and new projects are completed — progressing from single-file scripts toward multi-file, OOP-based systems.
+
+## Author
 
 **Pranjal Jhariya**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
