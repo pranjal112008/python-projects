@@ -19,10 +19,11 @@ This repository documents my Python development journey, from foundational scrip
 | 7 | [Password Generator](#7-password-generator)                        | Generates secure, customizable random passwords            | Utility      | —       |
 | 8 | [Contact Book](#8-contact-book)                                    | Stores, searches, updates, and deletes contacts            | Productivity | JSON    |
 | 9 | [Todo List Manager](#9-todo-list-manager)                          | Task manager with priorities and completion tracking       | Productivity | JSON    |
-| 10 | [Simple ATM / Bank System](#10-simple-atm--bank-system)           | OOP banking simulator with PIN auth, deposits, transfers   | Productivity | SQLite  |
+| 10 | [Simple ATM / Bank System](#10-simple-atm--bank-system)           | OOP banking simulator with inheritance, PIN auth, transfers | Productivity | SQLite  |
 | 11 | [Personal Expense Tracker](#11-personal-expense-tracker)          | Logs, categorizes, and summarizes expenses                 | Productivity | JSON    |
 | 12 | [Simple Inventory / Shop Management](#12-simple-inventory--shop-management) | Tracks stock, sales, restocking, and revenue     | Productivity | JSON    |
 | 13 | [Library Management System](#13-library-management-system)        | Tracks books, issues/returns, due dates, and late fees     | Productivity | SQLite  |
+| 14 | [Word Frequency Counter](#14-word-frequency-counter)               | Analyzes text and ranks word frequency, with stopword filtering | Utility  | —       |
 
 ---
 
@@ -171,22 +172,23 @@ A CLI task manager with priorities, completion tracking, and persistent storage 
 - GUI or web version
 
 ### 10. Simple ATM / Bank System
-An object-oriented CLI banking simulator with PIN-protected accounts, deposits, withdrawals, and transfers between accounts, backed by a **SQLite** database.
+An object-oriented CLI banking simulator with PIN-protected accounts, deposits, withdrawals, and transfers between accounts, backed by a **SQLite** database. Built around an `Account` base class with `SavingsAccount` and `CurrentAccount` subclasses, demonstrating inheritance and polymorphism.
 
 **Features**
-- Create an account with a name and a 4-digit PIN
+- Create an account as either **Savings** (earns interest) or **Current** (has an overdraft limit)
 - Auto-generated, collision-safe account numbers
 - Login with account number + PIN authentication
-- Deposit and withdraw funds (with balance checks)
-- Transfer funds between two accounts
+- Deposit and withdraw funds — withdrawal rules differ by account type (standard balance check for Savings, overdraft allowance for Current) via polymorphic `withdraw()` overriding
+- Apply interest to Savings accounts on demand
+- Transfer funds between two accounts (respects each account type's own withdrawal rules)
 - Full transaction history log per account, with timestamps
-- Data persists in `bank.db` (SQLite)
+- Data persists in `bank.db` (SQLite), including account type per row
 
 **Possible future improvements**
 - PIN change functionality
-- Account types (savings vs. checking) with different interest rates
 - Minimum balance requirements
 - Hash/encrypt PINs instead of storing them in plain text (essential for any real system)
+- Abstract base class (`ABC`) for `Account` to enforce subclasses implement required methods
 
 ### 11. Personal Expense Tracker
 A CLI tool to log, categorize, and analyze personal expenses, with persistent storage in JSON.
@@ -240,6 +242,22 @@ An object-oriented CLI system to manage a library's books and lending, backed by
 - Reservation queue for fully-borrowed books
 - Reminders for books nearing their due date
 
+### 14. Word Frequency Counter
+A CLI text analysis tool that counts and ranks how often each word appears in a block of text, with optional stopword filtering.
+
+**Features**
+- Case-insensitive word counting with punctuation stripped
+- Ranks words by frequency, most common first
+- Stopword filtering using a set (removes common words like "the", "is", "and" so results highlight meaningful terms)
+- Reports the single most common word
+- Menu-driven, matches the structure of the other CLI tools in this repo
+
+**Possible future improvements**
+- Load text from a `.txt` file instead of manual input
+- Configurable/editable stopword list
+- Word cloud visualization
+- Support for analyzing multiple files and comparing frequency across them
+
 ---
 
 ## Repository Structure
@@ -259,6 +277,7 @@ python-projects/
 ├── Project11_Expense_Tracker/
 ├── Project12_Simple_Inventory/
 ├── Project13_Library_Management/
+├── Project14_Word_Frequency_Counter/
 └── README.md
 ```
 
