@@ -19,11 +19,11 @@ This repository documents my Python development journey, from foundational scrip
 | 7 | [Password Generator](#7-password-generator)                        | Generates secure, customizable random passwords            | Utility      | —       |
 | 8 | [Contact Book](#8-contact-book)                                    | Stores, searches, updates, and deletes contacts            | Productivity | JSON    |
 | 9 | [Todo List Manager](#9-todo-list-manager)                          | Task manager with priorities and completion tracking       | Productivity | JSON    |
-| 10 | [Simple ATM / Bank System](#10-simple-atm--bank-system)           | OOP banking simulator with inheritance, PIN auth, transfers | Productivity | SQLite  |
+| 10 | [Simple ATM / Bank System](#10-simple-atm--bank-system)           | OOP banking simulator with inheritance, PIN auth, transfers| Productivity | SQLite  |
 | 11 | [Personal Expense Tracker](#11-personal-expense-tracker)          | Logs, categorizes, and summarizes expenses                 | Productivity | JSON    |
-| 12 | [Simple Inventory / Shop Management](#12-simple-inventory--shop-management) | Tracks stock, sales, restocking, and revenue     | Productivity | JSON    |
+| 12 | [Simple Inventory / Shop Management](#12-simple-inventory--shop-management)                                                                                                                                                       | Tracks stock, sales, restocking, and revenue               | Productivity | JSON    |
 | 13 | [Library Management System](#13-library-management-system)        | Tracks books, issues/returns, due dates, and late fees     | Productivity | SQLite  |
-| 14 | [Word Frequency Counter](#14-word-frequency-counter)               | Analyzes text and ranks word frequency, with stopword filtering | Utility  | —       |
+| 14 | [Word Frequency Counter](#14-word-frequency-counter)              | Analyzes text and ranks word frequency, with stopword                                                                                                           filtering                                                  | Utility      | —       |
 
 ---
 
