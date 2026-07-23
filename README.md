@@ -281,6 +281,7 @@ python-projects/
 └── README.md
 ```
 
+
 Each subfolder contains the project's script(s), and larger projects (Math Utils Toolkit, multi-file OOP systems) separate logic, CLI, and tests where applicable.
 
 ## Tools & Technologies
