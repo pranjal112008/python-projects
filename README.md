@@ -32,6 +32,7 @@ This repository documents my Python development journey, from foundational scrip
 - **Custom decorators:** The Library system includes a real decorator (`@log_action`) built with `functools.wraps`, logging every database action with a timestamp — not just a demonstration of `*args`/`**kwargs`, but wired into working code.
 - **Type hints:** ATM and Library use `typing` (`Optional`, `List`, `Tuple`) for clearer function signatures.
 - **Consistent input handling:** Every project validates input in a retry loop instead of crashing — a deliberate pattern held across all 14 files.
+- **Comprehensions:** Word Frequency Counter's frequency-building logic and Rock Paper Scissors' adaptive-strategy logic use list/set/dict comprehensions rather than manual accumulator loops.
 
 ---
 
@@ -88,7 +89,7 @@ A CLI Rock Paper Scissors game with score tracking, a replay loop, and an option
 - Score tracking across rounds (wins, losses, ties)
 - Two computer difficulty modes:
   - Random — fair, unpredictable
-  - Adaptive — tracks your move history and counters your most common choice
+  - Adaptive — tracks your move history (via a set comprehension) and counters your most common choice
 - Replay loop until you choose to stop
 
 **Possible future improvements**
@@ -259,6 +260,7 @@ A CLI text analysis tool that counts and ranks how often each word appears in a 
 
 **Features**
 - Case-insensitive word counting with punctuation stripped
+- Word cleaning, uniquing, and counting built entirely with list/set/dict comprehensions
 - Ranks words by frequency, most common first
 - Reports the single most common word
 - Menu-driven, matches the structure of the other CLI tools in this repo
@@ -306,7 +308,7 @@ Each subfolder contains the project's script(s), and larger projects separate lo
 
 ## Progress
 
-This repository is updated continuously as new topics are learned and new projects are completed — progressing from single-file scripts toward multi-file, OOP-based systems. Current focus: closing remaining core-Python gaps (comprehensions, recursion, generators, `re`, `@property` encapsulation) and layering in professional tooling — Flask, SQLAlchemy, `pytest`, and GitHub Actions — on top of these existing projects.
+This repository is updated continuously as new topics are learned and new projects are completed — progressing from single-file scripts toward multi-file, OOP-based systems. Currently following an 18-day plan to close remaining core-Python gaps and layer in professional tooling (Flask, SQLAlchemy, pytest, GitHub Actions).
 
 ## Author
 
