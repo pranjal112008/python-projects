@@ -1,11 +1,9 @@
 def word_frequency(text: str) -> dict:
     words = text.lower().split()
-    frequency = {}
-    for word in words:
-        cleaned = ''.join(char for char in word if char.isalnum())
-        if not cleaned:
-            continue
-        frequency[cleaned] = frequency.get(cleaned, 0) + 1
+    cleaned_words = [''.join(char for char in word if char.isalnum()) for word in words]
+    cleaned_words = [word for word in cleaned_words if word]
+    unique_words = {word for word in cleaned_words}
+    frequency = {word: cleaned_words.count(word) for word in unique_words}
     return frequency
 def print_frequency(frequency: dict):
     print("\nWord Frequency:")
