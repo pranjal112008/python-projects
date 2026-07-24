@@ -19,7 +19,8 @@ def get_computer_choice(strategy, history):
       - "adaptive": tries to counter the player's most frequent choice
     """
     if strategy == "adaptive" and history:
-        most_common = max(set(history), key=history.count)
+        unique_choices = {choice for choice in history}
+        most_common = max(unique_choices, key=history.count)
         counter = {v: k for k, v in BEATS.items()}[most_common]
         return counter
     return random.choice(CHOICES)
