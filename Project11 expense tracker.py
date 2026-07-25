@@ -66,7 +66,6 @@ def view_summary(expenses):
     print(f"{'Category':<15}{'Amount':<10}{'%':<8}")
     print("-" * 40)
     for cat in CATEGORIES:
-        # filter() selects expenses matching this category, map() pulls out just the amount
         category_expenses = filter(lambda e: e["category"] == cat, expenses)
         cat_total = sum(map(lambda e: e["amount"], category_expenses))
         if cat_total > 0:
