@@ -33,6 +33,7 @@ This repository documents my Python development journey, from foundational scrip
 - **Type hints:** ATM and Library use `typing` (`Optional`, `List`, `Tuple`) for clearer function signatures.
 - **Consistent input handling:** Every project validates input in a retry loop instead of crashing — a deliberate pattern held across all 14 files.
 - **Comprehensions:** Word Frequency Counter's frequency-building logic and Rock Paper Scissors' adaptive-strategy logic use list/set/dict comprehensions rather than manual accumulator loops.
+- **Functional-style data processing:** Expense Tracker's category totals are built with `filter`/`map`/`lambda` pipelines, and the Student Report System ranks students by marks using `sorted()` with a `lambda` key.
 
 ---
 
@@ -57,7 +58,7 @@ A CLI-based student record manager with persistent storage in a CSV file.
 **Features**
 - Add students with name and marks
 - Auto-assigns letter grade (A/B/C/D/F)
-- View all students in a formatted table
+- View all students in a formatted table, ranked by marks (highest first)
 - Search for a student by name
 - Class summary report (average, highest, lowest, pass/fail count)
 - Data persists across runs in `students.csv`
@@ -208,7 +209,7 @@ A CLI tool to log, categorize, and analyze personal expenses, with persistent st
 - Add expenses with amount, category, note, and auto-recorded date
 - Predefined categories (Food, Transport, Rent, Entertainment, Utilities, Shopping, Other)
 - View all expenses in a table
-- Category-wise summary with percentage breakdown
+- Category-wise summary with percentage breakdown, computed via `filter`/`map`
 - Delete an expense by ID
 - Data persists in `expenses.json`
 
