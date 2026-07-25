@@ -50,7 +50,9 @@ def view_all(students):
     print("\n" + "=" * 45)
     print(f"{'Name':<20}{'Marks':<10}{'Grade':<10}")
     print("=" * 45)
-    for s in students:
+    # Rank by marks, highest first, using sorted() with a lambda key
+    ranked = sorted(students, key=lambda s: s["marks"], reverse=True)
+    for s in ranked:
         print(f"{s['name']:<20}{s['marks']:<10}{s['grade']:<10}")
     print("=" * 45)
 def search_student(students):
@@ -70,7 +72,7 @@ def class_summary(students):
     average = total / len(marks_list)
     highest = max(students, key=lambda s: s["marks"])
     lowest = min(students, key=lambda s: s["marks"])
-    passed = sum(1 for s in students if s["marks"] >= 40)
+    passed = len(list(filter(lambda s: s["marks"] >= 40, students)))
     failed = len(students) - passed
     print("\n" + "=" * 40)
     print("          CLASS SUMMARY REPORT")
