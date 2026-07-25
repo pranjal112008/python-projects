@@ -66,7 +66,9 @@ def view_summary(expenses):
     print(f"{'Category':<15}{'Amount':<10}{'%':<8}")
     print("-" * 40)
     for cat in CATEGORIES:
-        cat_total = sum(e["amount"] for e in expenses if e["category"] == cat)
+        # filter() selects expenses matching this category, map() pulls out just the amount
+        category_expenses = filter(lambda e: e["category"] == cat, expenses)
+        cat_total = sum(map(lambda e: e["amount"], category_expenses))
         if cat_total > 0:
             percentage = (cat_total / total) * 100
             print(f"{cat:<15}{cat_total:<10.2f}{percentage:<8.1f}")
