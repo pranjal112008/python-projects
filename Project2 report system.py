@@ -1,5 +1,6 @@
 import csv
 import os
+from functools import reduce
 DATA_FILE = "students.csv"
 def load_students():
     """Load students from CSV file if it exists."""
@@ -68,7 +69,9 @@ def class_summary(students):
         print("No students recorded yet.")
         return
     marks_list = [s["marks"] for s in students]
-    total = sum(marks_list)
+    # sum() is really just reduce(lambda acc, n: acc + n, marks_list, 0) under the hood.
+    # Written explicitly here for practice — sum() remains the better choice in real code.
+    total = reduce(lambda acc, marks: acc + marks, marks_list, 0)
     average = total / len(marks_list)
     highest = max(students, key=lambda s: s["marks"])
     lowest = min(students, key=lambda s: s["marks"])
