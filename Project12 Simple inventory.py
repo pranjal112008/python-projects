@@ -1,5 +1,6 @@
 import json
 import os
+from functools import reduce
 DATA_FILE = "inventory.json"
 LOW_STOCK_THRESHOLD = 5
 class Item:
@@ -110,6 +111,16 @@ def restock_item(shop):
     print(f"Restocked '{item.name}'. New quantity: {item.quantity}")
 def view_revenue(shop):
     print(f"\nTotal Revenue: {shop.total_revenue:.2f}")
+def total_inventory_value(shop):
+    # reduce() folds every item's (price * quantity) into a single running total.
+    # acc = accumulator so far, item = current item, 0.0 = starting value.
+    return reduce(lambda acc, item: acc + (item.price * item.quantity), shop.items.values(), 0.0)
+def view_inventory_value(shop):
+    if not shop.items:
+        print("Inventory is empty.")
+        return
+    value = total_inventory_value(shop)
+    print(f"\nTotal Inventory Value (unsold stock): {value:.2f}")
 def print_menu():
     print("\n" + "=" * 35)
     print("     SIMPLE INVENTORY / SHOP MGMT")
@@ -119,7 +130,8 @@ def print_menu():
     print("3. Sell Item")
     print("4. Restock Item")
     print("5. View Total Revenue")
-    print("6. Exit")
+    print("6. View Total Inventory Value")
+    print("7. Exit")
     print("=" * 35)
 def main():
     shop = Shop()
@@ -137,6 +149,8 @@ def main():
         elif choice == "5":
             view_revenue(shop)
         elif choice == "6":
+            view_inventory_value(shop)
+        elif choice == "7":
             print("Goodbye!")
             break
         else:
