@@ -34,6 +34,7 @@ This repository documents my Python development journey, from foundational scrip
 - **Consistent input handling:** Every project validates input in a retry loop instead of crashing — a deliberate pattern held across all 14 files.
 - **Comprehensions:** Word Frequency Counter's frequency-building logic and Rock Paper Scissors' adaptive-strategy logic use list/set/dict comprehensions rather than manual accumulator loops.
 - **Functional-style data processing:** Expense Tracker's category totals are built with `filter`/`map`/`lambda` pipelines, and the Student Report System ranks students by marks using `sorted()` with a `lambda` key.
+- **Aggregation with `functools.reduce`:** The Inventory system computes total inventory value by folding each item's `price × quantity` with `reduce`.
 
 ---
 
@@ -229,6 +230,7 @@ An object-oriented CLI system for managing a shop's inventory, with persistent s
 - Restock items
 - Low-stock alerts (flagged when quantity ≤ 5)
 - Track total revenue across all sales
+- View total inventory value (unsold stock worth), computed via `functools.reduce`
 - Data persists in `inventory.json`
 
 **Possible future improvements**
