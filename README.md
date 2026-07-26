@@ -8,22 +8,22 @@ This repository documents my Python development journey, from foundational scrip
 
 ## Project Index
 
-| # | Project | Description | Type | Storage |
-|---|---|---|---|---|
-| 1 | CLI Calculator | Command-line calculator with basic and advanced operations | Utility | — |
-| 2 | Student Report Card System | Manages student records, grades, and class summaries | Productivity | CSV |
-| 3 | Number Guessing Game | Guessing game with difficulty levels and scoring | Game | — |
-| 4 | Rock Paper Scissors | RPS with score tracking and an adaptive AI opponent | Game | — |
-| 5 | Quiz Game | Multiple-choice general knowledge quiz | Game | — |
-| 6 | Temperature Converter | Converts between Celsius, Fahrenheit, and Kelvin | Utility | — |
-| 7 | Password Generator | Generates secure, customizable random passwords | Utility | — |
-| 8 | Contact Book | Stores, searches, updates, and deletes contacts | Productivity | JSON |
-| 9 | Todo List Manager | Task manager with priorities and completion tracking | Productivity | JSON |
-| 10 | Simple ATM / Bank System | OOP banking simulator with inheritance, PIN auth, transfers | Productivity | SQLite |
-| 11 | Personal Expense Tracker | Logs, categorizes, and summarizes expenses | Productivity | JSON |
-| 12 | Simple Inventory / Shop Management | Tracks stock, sales, restocking, and revenue | Productivity | JSON |
-| 13 | Library Management System | Tracks books, issues/returns, due dates, and late fees | Productivity | SQLite |
-| 14 | Word Frequency Counter | Analyzes text and ranks word frequency | Utility | — |
+| #  | Project                             | Description                                                | Type         | Storage |
+|----|------------------------------------|-------------------------------------------------------------|--------------|---------|
+| 1  | CLI Calculator                     | Command-line calculator with basic and advanced operations  | Utility      | —       |
+| 2  | Student Report Card System         | Manages student records, grades, and class summaries        | Productivity | CSV     |
+| 3  | Number Guessing Game               | Guessing game with difficulty levels and scoring            | Game         | —       |
+| 4  | Rock Paper Scissors                | RPS with score tracking and an adaptive AI opponent         | Game         | —       |
+| 5  | Quiz Game                          | Multiple-choice general knowledge quiz                      | Game         | —       |
+| 6  | Temperature Converter              | Converts between Celsius, Fahrenheit, and Kelvin            | Utility      | —       |
+| 7  | Password Generator                 | Generates secure, customizable random passwords             | Utility      | —       |
+| 8  | Contact Book                       | Stores, searches, updates, and deletes contacts             | Productivity | JSON    |
+| 9  | Todo List Manager                  | Task manager with priorities and completion tracking        | Productivity | JSON    |
+| 10 | Simple ATM / Bank System           | OOP banking simulator with inheritance, PIN auth, transfers | Productivity | SQLite  |
+| 11 | Personal Expense Tracker           | Logs, categorizes, and summarizes expenses                  | Productivity | JSON    |
+| 12 | Simple Inventory / Shop Management | Tracks stock, sales, restocking, and revenue                | Productivity | JSON    |
+| 13 | Library Management System          | Tracks books, issues/returns, due dates, and late fees      | Productivity | SQLite  |
+| 14 | Word Frequency Counter             | Analyzes text and ranks word frequency                      | Utility      | —       |
 
 ## ⭐ Technical Highlights
 
