@@ -8,7 +8,7 @@ This repository documents my Python development journey, from foundational scrip
 
 ## Project Index
 
-| #  | Project                             | Description                                                | Type         | Storage |
+| #  | Project                            | Description                                                 | Type         | Storage |
 |----|------------------------------------|-------------------------------------------------------------|--------------|---------|
 | 1  | CLI Calculator                     | Command-line calculator with basic and advanced operations  | Utility      | —       |
 | 2  | Student Report Card System         | Manages student records, grades, and class summaries        | Productivity | CSV     |
@@ -312,6 +312,7 @@ Each subfolder contains the project's script(s), and larger projects separate lo
 ## Progress
 
 This repository is updated continuously as new topics are learned and new projects are completed — progressing from single-file scripts toward multi-file, OOP-based systems. Currently following an 18-day plan to close remaining core-Python gaps and layer in professional tooling (Flask, SQLAlchemy, pytest, GitHub Actions).
+
 
 ## Author
 
