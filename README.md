@@ -8,6 +8,7 @@ This repository documents my Python development journey, from foundational scrip
 
 ## Project Index
 
+
 | #  | Project                            | Description                                                 | Type         | Storage |
 |----|------------------------------------|-------------------------------------------------------------|--------------|---------|
 | 1  | CLI Calculator                     | Command-line calculator with basic and advanced operations  | Utility      | —       |
