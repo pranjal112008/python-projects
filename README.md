@@ -314,7 +314,6 @@ Each subfolder contains the project's script(s), and larger projects separate lo
 
 This repository is updated continuously as new topics are learned and new projects are completed — progressing from single-file scripts toward multi-file, OOP-based systems. Currently following an 18-day plan to close remaining core-Python gaps and layer in professional tooling (Flask, SQLAlchemy, pytest, GitHub Actions).
 
-
 ## Author
 
 Pranjal Jhariya — GitHub
