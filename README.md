@@ -26,6 +26,7 @@ This repository documents my Python development journey, from foundational scrip
 | 13 | Library Management System          | Tracks books, issues/returns, due dates, and late fees      | Productivity | SQLite  |
 | 14 | Word Frequency Counter             | Analyzes text and ranks word frequency                      | Utility      | —       |
 
+
 ## ⭐ Technical Highlights
 
 - **Object-Oriented Design:** The ATM system is built around an `Account` base class with `SavingsAccount` and `CurrentAccount` subclasses overriding `withdraw()` and `account_type()` — genuine polymorphism, not just inheritance for its own sake. The Inventory (`Item`, `Shop`) and Library (`Book`, `User`, `LibraryDB`) systems apply the same OOP patterns.
