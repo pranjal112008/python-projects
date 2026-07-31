@@ -8,24 +8,22 @@ This repository documents my Python development journey, from foundational scrip
 
 ## Project Index
 
-
-| #  | Project                            | Description                                                 | Type         | Storage |
-|----|------------------------------------|-------------------------------------------------------------|--------------|---------|
-| 1  | CLI Calculator                     | Command-line calculator with basic and advanced operations  | Utility      | —       |
-| 2  | Student Report Card System         | Manages student records, grades, and class summaries        | Productivity | CSV     |
-| 3  | Number Guessing Game               | Guessing game with difficulty levels and scoring            | Game         | —       |
-| 4  | Rock Paper Scissors                | RPS with score tracking and an adaptive AI opponent         | Game         | —       |
-| 5  | Quiz Game                          | Multiple-choice general knowledge quiz                      | Game         | —       |
-| 6  | Temperature Converter              | Converts between Celsius, Fahrenheit, and Kelvin            | Utility      | —       |
-| 7  | Password Generator                 | Generates secure, customizable random passwords             | Utility      | —       |
-| 8  | Contact Book                       | Stores, searches, updates, and deletes contacts             | Productivity | JSON    |
-| 9  | Todo List Manager                  | Task manager with priorities and completion tracking        | Productivity | JSON    |
-| 10 | Simple ATM / Bank System           | OOP banking simulator with inheritance, PIN auth, transfers | Productivity | SQLite  |
-| 11 | Personal Expense Tracker           | Logs, categorizes, and summarizes expenses                  | Productivity | JSON    |
-| 12 | Simple Inventory / Shop Management | Tracks stock, sales, restocking, and revenue                | Productivity | JSON    |
-| 13 | Library Management System          | Tracks books, issues/returns, due dates, and late fees      | Productivity | SQLite  |
-| 14 | Word Frequency Counter             | Analyzes text and ranks word frequency                      | Utility      | —       |
-
+| # | Project | Description | Type | Storage |
+|---|---|---|---|---|
+| 1 | CLI Calculator | Command-line calculator with basic and advanced operations | Utility | — |
+| 2 | Student Report Card System | Manages student records, grades, and class summaries | Productivity | CSV |
+| 3 | Number Guessing Game | Guessing game with difficulty levels and scoring | Game | — |
+| 4 | Rock Paper Scissors | RPS with score tracking and an adaptive AI opponent | Game | — |
+| 5 | Quiz Game | Multiple-choice general knowledge quiz | Game | — |
+| 6 | Temperature Converter | Converts between Celsius, Fahrenheit, and Kelvin | Utility | — |
+| 7 | Password Generator | Generates secure, customizable random passwords | Utility | — |
+| 8 | Contact Book | Stores, searches, updates, and deletes contacts | Productivity | JSON |
+| 9 | Todo List Manager | Task manager with priorities and completion tracking | Productivity | JSON |
+| 10 | Simple ATM / Bank System | OOP banking simulator with inheritance, PIN auth, transfers | Productivity | SQLite |
+| 11 | Personal Expense Tracker | Logs, categorizes, and summarizes expenses | Productivity | JSON |
+| 12 | Simple Inventory / Shop Management | Tracks stock, sales, restocking, and revenue | Productivity | JSON |
+| 13 | Library Management System | Tracks books, issues/returns, due dates, and late fees | Productivity | SQLite |
+| 14 | Word Frequency Counter | Analyzes text and ranks word frequency | Utility | — |
 
 ## ⭐ Technical Highlights
 
@@ -37,6 +35,7 @@ This repository documents my Python development journey, from foundational scrip
 - **Comprehensions:** Word Frequency Counter's frequency-building logic and Rock Paper Scissors' adaptive-strategy logic use list/set/dict comprehensions rather than manual accumulator loops.
 - **Functional-style data processing:** Expense Tracker's category totals are built with `filter`/`map`/`lambda` pipelines, and the Student Report System ranks students by marks using `sorted()` with a `lambda` key.
 - **Aggregation with `functools.reduce`:** The Inventory system computes total inventory value by folding each item's `price × quantity` with `reduce`.
+- **Generators:** The Todo List Manager displays tasks by pulling from a generator (`iter_tasks`) that yields tasks one at a time, rather than building a filtered list upfront.
 
 ---
 
@@ -174,7 +173,7 @@ A CLI task manager with priorities, completion tracking, and persistent storage 
 **Features**
 - Add tasks with a priority level (low/medium/high)
 - Auto-incrementing task IDs
-- View all tasks or only pending ones
+- View all tasks or only pending ones, streamed from a generator rather than a pre-built list
 - Mark tasks as complete
 - Delete tasks
 - Timestamps each task with its creation date/time
