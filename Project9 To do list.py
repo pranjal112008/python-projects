@@ -28,18 +28,28 @@ def add_task(tasks):
     tasks.append(task)
     save_tasks(tasks)
     print(f"Task added with ID {task['id']}.")
+def iter_tasks(tasks, show_completed=True):
+    """Generator: yields tasks one at a time, filtering by completion status if requested."""
+    for t in tasks:
+        if show_completed or not t["done"]:
+            yield t
+
 def view_tasks(tasks, show_completed=True):
     if not tasks:
         print("No tasks yet.")
         return
-    visible = tasks if show_completed else [t for t in tasks if not t["done"]]
-    if not visible:
+    # Peek at the generator to check if there's anything to show, without building a full list
+    task_generator = iter_tasks(tasks, show_completed)
+    first_task = next(task_generator, None)
+    if first_task is None:
         print("No pending tasks.")
         return
     print("\n" + "=" * 60)
     print(f"{'ID':<5}{'Status':<10}{'Priority':<10}{'Description':<35}")
     print("=" * 60)
-    for t in visible:
+    # itertools.chain puts the already-consumed first_task back at the front of iteration
+    import itertools
+    for t in itertools.chain([first_task], task_generator):
         status = "Done" if t["done"] else "Pending"
         print(f"{t['id']:<5}{status:<10}{t['priority']:<10}{t['description']:<35}")
     print("=" * 60)
