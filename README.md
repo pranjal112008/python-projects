@@ -36,6 +36,7 @@ This repository documents my Python development journey, from foundational scrip
 - **Functional-style data processing:** Expense Tracker's category totals are built with `filter`/`map`/`lambda` pipelines, and the Student Report System ranks students by marks using `sorted()` with a `lambda` key.
 - **Aggregation with `functools.reduce`:** The Inventory system computes total inventory value by folding each item's `price × quantity` with `reduce`.
 - **Generators:** The Todo List Manager displays tasks by pulling from a generator (`iter_tasks`) that yields tasks one at a time, rather than building a filtered list upfront.
+- **Regex validation:** Contact Book validates phone numbers and email addresses with compiled `re` patterns and retry loops. The Library system's previously-unused `re` import now validates author and member names.
 
 ---
 
@@ -154,7 +155,7 @@ A CLI tool that generates secure, customizable random passwords using `random` a
 A CLI contact manager with persistent storage in JSON.
 
 **Features**
-- Add contacts (name, phone, email)
+- Add contacts (name, phone, email) — phone and email validated with regex, with retry on invalid input
 - View all contacts, sorted alphabetically
 - Search contacts by partial name match
 - Update phone/email for an existing contact
@@ -244,7 +245,7 @@ An object-oriented CLI system for managing a shop's inventory, with persistent s
 An object-oriented CLI system to manage a library's books and lending, backed by a SQLite database.
 
 **Features**
-- Add books with title, author, and number of copies
+- Add books with title, author, and number of copies — author and member names validated with regex
 - Issue books to members (tracks who has what, and the due date)
 - Prevents issuing when no copies are available
 - Return books with automatic late fee calculation (based on days overdue)
@@ -257,7 +258,7 @@ An object-oriented CLI system to manage a library's books and lending, backed by
 - Separate `Member` class with borrowing limits and history
 - Reservation queue for fully-borrowed books
 - Reminders for books nearing their due date
-- Wire up the currently-unused `re` import for ISBN/author-name validation
+- Add an ISBN field with regex-based format validation (currently only title/author are validated)
 
 ## 14. Word Frequency Counter
 A CLI text analysis tool that counts and ranks how often each word appears in a block of text.
