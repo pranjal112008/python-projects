@@ -1,6 +1,28 @@
 import json
 import os
+import re
 DATA_FILE = "contacts.json"
+
+# Matches phone numbers like "9876543210", "987-654-3210", "+91 9876543210"
+PHONE_PATTERN = re.compile(r"^\+?[\d\s\-]{7,15}$")
+# Standard email shape: local-part@domain.tld (supports multi-level domains like mail.example.co)
+EMAIL_PATTERN = re.compile(r"^[\w\.\-]+@[\w\-]+(\.[\w\-]+)*\.[A-Za-z]{2,}$")
+
+def get_valid_phone(prompt):
+    while True:
+        phone = input(prompt).strip()
+        if PHONE_PATTERN.match(phone):
+            return phone
+        print("Invalid phone number. Use digits, spaces, or hyphens (7-15 digits), optionally starting with '+'.")
+
+def get_valid_email(prompt, allow_blank=False):
+    while True:
+        email = input(prompt).strip()
+        if allow_blank and not email:
+            return email
+        if EMAIL_PATTERN.match(email):
+            return email
+        print("Invalid email format. Expected something like name@example.com.")
 def load_contacts():
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, "r") as f:
@@ -14,8 +36,8 @@ def add_contact(contacts):
     if name in contacts:
         print("A contact with this name already exists. Use update instead.")
         return
-    phone = input("Enter phone number: ").strip()
-    email = input("Enter email (optional): ").strip()
+    phone = get_valid_phone("Enter phone number: ")
+    email = get_valid_email("Enter email (optional, press Enter to skip): ", allow_blank=True)
     contacts[name] = {"phone": phone, "email": email}
     save_contacts(contacts)
     print(f"Contact '{name}' added.")
@@ -42,8 +64,16 @@ def update_contact(contacts):
     if name not in contacts:
         print("Contact not found.")
         return
-    phone = input(f"New phone (leave blank to keep '{contacts[name]['phone']}'): ").strip()
-    email = input(f"New email (leave blank to keep '{contacts[name]['email']}'): ").strip()
+    while True:
+        phone = input(f"New phone (leave blank to keep '{contacts[name]['phone']}'): ").strip()
+        if not phone or PHONE_PATTERN.match(phone):
+            break
+        print("Invalid phone number. Use digits, spaces, or hyphens (7-15 digits), optionally starting with '+'.")
+    while True:
+        email = input(f"New email (leave blank to keep '{contacts[name]['email']}'): ").strip()
+        if not email or EMAIL_PATTERN.match(email):
+            break
+        print("Invalid email format. Expected something like name@example.com.")
     if phone:
         contacts[name]["phone"] = phone
     if email:
