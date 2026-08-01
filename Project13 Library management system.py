@@ -14,6 +14,13 @@ def log_action(action: str):
             return func(*args, **kwargs)
         return wrapper
     return decorator
+
+# Matches names made of letters, spaces, hyphens, apostrophes, and periods
+# (covers "J.K. Rowling", "Gabriel García Márquez", "O'Brien", "Jean-Paul Sartre")
+NAME_PATTERN = re.compile(r"^[A-Za-z][A-Za-z\s\.\-']*$")
+
+def is_valid_name(name: str) -> bool:
+    return bool(NAME_PATTERN.match(name.strip())) if name.strip() else False
 class Book:
     def __init__(self, book_id: int, title: str, author: str, copies: int):
         self.book_id = book_id
@@ -52,6 +59,10 @@ class LibraryDB:
             ''')
     @log_action("Add Book")
     def add_book(self, title: str, author: str, copies: int) -> Book:
+        if not title.strip():
+            raise ValueError("Title cannot be empty.")
+        if not is_valid_name(author):
+            raise ValueError(f"Invalid author name: '{author}'. Use letters, spaces, hyphens, apostrophes, or periods only.")
         with self.conn:
             cursor = self.conn.execute("INSERT INTO books (title, author, copies) VALUES (?, ?, ?)",
                                      (title, author, copies))
@@ -62,6 +73,8 @@ class LibraryDB:
         return [Book(row[0], row[1], row[2], row[3]) for row in cursor.fetchall()]
     @log_action("Issue Book")
     def issue_book(self, book_id: int, user_name: str) -> str:
+        if not is_valid_name(user_name):
+            raise ValueError(f"Invalid member name: '{user_name}'.")
         cursor = self.conn.execute("SELECT copies FROM books WHERE book_id = ?", (book_id,))
         row = cursor.fetchone()
         if not row or row[0] <= 0:
