@@ -37,6 +37,8 @@ This repository documents my Python development journey, from foundational scrip
 - **Aggregation with `functools.reduce`:** The Inventory system computes total inventory value by folding each item's `price × quantity` with `reduce`.
 - **Generators:** The Todo List Manager displays tasks by pulling from a generator (`iter_tasks`) that yields tasks one at a time, rather than building a filtered list upfront.
 - **Regex validation:** Contact Book validates phone numbers and email addresses with compiled `re` patterns and retry loops. The Library system's previously-unused `re` import now validates author and member names.
+- **Encapsulation:** `Account.balance` is a `@property` with a validating setter — direct assignment is checked against a per-account-type minimum (0 for standard/savings, `-overdraft_limit` for current), so an invalid balance can't be set even by accident.
+- **Context managers:** `Bank` implements `__enter__`/`__exit__`, so `with Bank() as bank:` guarantees the SQLite connection is closed — previously the connection was opened once and never explicitly closed.
 
 ---
 
@@ -197,6 +199,8 @@ An object-oriented CLI banking simulator with PIN-protected accounts, deposits, 
 - Apply interest to Savings accounts on demand
 - Transfer funds between two accounts (respects each account type's own withdrawal rules)
 - Full transaction history log per account, with timestamps
+- Balance is a validated `@property` — can't be set below the account type's allowed minimum
+- Database connection managed via a context manager (`with Bank() as bank:`), guaranteeing proper cleanup
 - Data persists in `bank.db` (SQLite), including account type per row
 
 **Possible future improvements**
