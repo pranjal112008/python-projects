@@ -7,11 +7,25 @@ class Account:
         self.account_number = account_number
         self.name = name
         self.pin = pin
-        self.balance = balance
+        self._balance = balance  # set directly here — subclasses may need to set
+                                  # their own attributes (e.g. overdraft_limit) before
+                                  # the balance setter's validation can safely run
+    @property
+    def balance(self) -> float:
+        return self._balance
+    @balance.setter
+    def balance(self, value: float):
+        minimum = self._minimum_allowed_balance()
+        if value < minimum:
+            raise ValueError(f"Balance cannot go below ₹{minimum:.2f}.")
+        self._balance = value
+    def _minimum_allowed_balance(self) -> float:
+        """Standard accounts can't go below zero. Overridden by CurrentAccount for overdraft."""
+        return 0.0
     def withdraw(self, amount: float):
         if amount > self.balance:
             raise ValueError("Insufficient balance!")
-        self.balance -= amount
+        self.balance -= amount   # goes through the property setter above
     def account_type(self) -> str:
         return "standard"
     def __str__(self):
@@ -30,17 +44,28 @@ class CurrentAccount(Account):
     def __init__(self, account_number, name, pin, balance=0.0, overdraft_limit=5000.0):
         super().__init__(account_number, name, pin, balance)
         self.overdraft_limit = overdraft_limit
+    def _minimum_allowed_balance(self) -> float:
+        return -self.overdraft_limit
     def withdraw(self, amount: float):
         available = self.balance + self.overdraft_limit
         if amount > available:
             raise ValueError(f"Exceeds overdraft limit! Available: ₹{available:.2f}")
-        self.balance -= amount
+        self.balance -= amount   # goes through the property setter, floor is -overdraft_limit
     def account_type(self) -> str:
         return "current"
 class Bank:
     def __init__(self):
         self.conn = sqlite3.connect(DB_FILE)
         self.create_tables()
+    def __enter__(self):
+        # Allows "with Bank() as bank:" — returns the object to bind to "bank"
+        return self
+    def __exit__(self, exc_type, exc_value, traceback):
+        # Runs automatically on exiting the "with" block, even if an exception occurred.
+        # This guarantees the SQLite connection is closed instead of leaking until the
+        # process ends — the original code never closed self.conn at all.
+        self.conn.close()
+        return False  # False = don't suppress any exception, let it propagate normally
     def create_tables(self):
         with self.conn:
             self.conn.execute('''
@@ -101,7 +126,7 @@ class Bank:
         row = cursor.fetchone()
         return self._row_to_account(row) if row else None
     def deposit(self, account: Account, amount: float):
-        account.balance += amount 
+        account.balance += amount  # same call for every account type
         with self.conn:
             self.conn.execute("UPDATE accounts SET balance = balance + ? WHERE account_number = ?",
                             (amount, account.account_number))
@@ -133,7 +158,7 @@ class Bank:
         if not row:
             raise ValueError("Receiver account not found!")
         receiver = self._row_to_account(row)
-        sender.withdraw(amount)  
+        sender.withdraw(amount)   
         receiver.balance += amount
         with self.conn:
             self.conn.execute("UPDATE accounts SET balance = ? WHERE account_number = ?",
@@ -164,67 +189,67 @@ def choose_account_type() -> str:
     choice = input("Choose account type: ").strip()
     return "savings" if choice == "1" else "current"
 def main():
-    bank = Bank()
-    print("=" * 50)
-    print("     ATM / BANK SYSTEM (with Inheritance)")
-    print("=" * 50)
-    while True:
-        print("\n1. Create Account\n2. Login\n3. Exit")
-        choice = input("Choose option: ").strip()
-        if choice == "1":
-            name = input("Enter your name: ").strip()
-            pin = input("Set 4-digit PIN: ").strip()
-            acc_type = choose_account_type()
-            try:
-                bank.create_account(name, pin, acc_type)
-            except ValueError as e:
-                print(f"❌ {e}")
-        elif choice == "2":
-            acc_num = input("Enter account number: ").strip()
-            pin = input("Enter PIN: ").strip()
-            account = bank.authenticate(acc_num, pin)
-            if not account:
-                print("❌ Invalid credentials!")
-                continue
-            print(f"\nWelcome, {account.name}! ({account})")
-            is_savings = isinstance(account, SavingsAccount)
-            menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Logout"
-            if is_savings:
-                menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Apply Interest  7. Logout"
-            print(menu)
-            while True:
-                op = input("Choose: ").strip()
-                if op == "1":
-                    print(f"Balance: ₹{account.balance:.2f}")
-                elif op == "2":
-                    bank.deposit(account, get_amount("Deposit amount: "))
-                elif op == "3":
-                    try:
-                        bank.withdraw(account, get_amount("Withdraw amount: "))
-                    except ValueError as e:
-                        print(f"❌ {e}")
-                elif op == "4":
-                    rec = input("Receiver Account Number: ").strip()
-                    amt = get_amount("Transfer amount: ")
-                    try:
-                        bank.transfer(account, rec, amt)
-                    except ValueError as e:
-                        print(f"❌ {e}")
-                elif op == "5":
-                    for act, amt, ts in bank.get_history(account.account_number)[:5]:
-                        print(f"{ts} | {act} | ₹{amt}")
-                elif op == "6" and is_savings:
-                    bank.apply_interest(account)
-                elif (op == "6" and not is_savings) or (op == "7" and is_savings):
-                    print("Logged out.")
-                    break
-                else:
-                    print("Invalid option.")
-                    print(menu)
+    with Bank() as bank:
+        print("=" * 50)
+        print("     ATM / BANK SYSTEM (with Inheritance)")
+        print("=" * 50)
+        while True:
+            print("\n1. Create Account\n2. Login\n3. Exit")
+            choice = input("Choose option: ").strip()
+            if choice == "1":
+                name = input("Enter your name: ").strip()
+                pin = input("Set 4-digit PIN: ").strip()
+                acc_type = choose_account_type()
+                try:
+                    bank.create_account(name, pin, acc_type)
+                except ValueError as e:
+                    print(f"❌ {e}")
+            elif choice == "2":
+                acc_num = input("Enter account number: ").strip()
+                pin = input("Enter PIN: ").strip()
+                account = bank.authenticate(acc_num, pin)
+                if not account:
+                    print("❌ Invalid credentials!")
                     continue
+                print(f"\nWelcome, {account.name}! ({account})")
+                is_savings = isinstance(account, SavingsAccount)
+                menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Logout"
+                if is_savings:
+                    menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Apply Interest  7. Logout"
                 print(menu)
-        elif choice == "3":
-            print("Thank you for using the ATM!")
-            break
+                while True:
+                    op = input("Choose: ").strip()
+                    if op == "1":
+                        print(f"Balance: ₹{account.balance:.2f}")
+                    elif op == "2":
+                        bank.deposit(account, get_amount("Deposit amount: "))
+                    elif op == "3":
+                        try:
+                            bank.withdraw(account, get_amount("Withdraw amount: "))
+                        except ValueError as e:
+                            print(f"❌ {e}")
+                    elif op == "4":
+                        rec = input("Receiver Account Number: ").strip()
+                        amt = get_amount("Transfer amount: ")
+                        try:
+                            bank.transfer(account, rec, amt)
+                        except ValueError as e:
+                            print(f"❌ {e}")
+                    elif op == "5":
+                        for act, amt, ts in bank.get_history(account.account_number)[:5]:
+                            print(f"{ts} | {act} | ₹{amt}")
+                    elif op == "6" and is_savings:
+                        bank.apply_interest(account)
+                    elif (op == "6" and not is_savings) or (op == "7" and is_savings):
+                        print("Logged out.")
+                        break
+                    else:
+                        print("Invalid option.")
+                        print(menu)
+                        continue
+                    print(menu)
+            elif choice == "3":
+                print("Thank you for using the ATM!")
+                break
 if __name__ == "__main__":
     main()
