@@ -25,6 +25,7 @@ This repository documents my Python development journey, from foundational scrip
 | 13 | Library Management System | Tracks books, issues/returns, due dates, and late fees | Productivity | SQLite |
 | 14 | Word Frequency Counter | Analyzes text and ranks word frequency | Utility | — |
 
+
 ## ⭐ Technical Highlights
 
 - **Object-Oriented Design:** The ATM system is built around an `Account` base class with `SavingsAccount` and `CurrentAccount` subclasses overriding `withdraw()` and `account_type()` — genuine polymorphism, not just inheritance for its own sake. The Inventory (`Item`, `Shop`) and Library (`Book`, `User`, `LibraryDB`) systems apply the same OOP patterns.
@@ -40,7 +41,7 @@ This repository documents my Python development journey, from foundational scrip
 - **Encapsulation:** `Account.balance` is a `@property` with a validating setter — direct assignment is checked against a per-account-type minimum (0 for standard/savings, `-overdraft_limit` for current), so an invalid balance can't be set even by accident.
 - **Context managers:** `Bank` implements `__enter__`/`__exit__`, so `with Bank() as bank:` guarantees the SQLite connection is closed — previously the connection was opened once and never explicitly closed.
 
----
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## 1. CLI Calculator
 A simple, robust command-line calculator.
