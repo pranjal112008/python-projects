@@ -2,7 +2,6 @@
 
 A collection of practical Python projects for learning, skill-building, and showcasing real-world CLI applications — spanning simple utilities to OOP-based systems with persistent storage.
 
-
 ## About
 
 This repository documents my Python development journey, from foundational scripts to fully structured, portfolio-ready projects. Each project lives in its own subfolder, is self-contained, and includes input validation, error handling, and (where relevant) persistent data storage.
