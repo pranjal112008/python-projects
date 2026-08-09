@@ -17,14 +17,13 @@ This repository documents my Python development journey, from foundational scrip
 | 5 | Quiz Game | Multiple-choice general knowledge quiz | Game | — |
 | 6 | Temperature Converter | Converts between Celsius, Fahrenheit, and Kelvin | Utility | — |
 | 7 | Password Generator | Generates secure, customizable random passwords | Utility | — |
-| 8 | Contact Book | Stores, searches, updates, and deletes contacts | Productivity | JSON |
+| 8 | Contact Book | Stores, searches, updates, and deletes contacts (multi-file: `models.py`/`storage.py`/`main.py`) | Productivity | JSON |
 | 9 | Todo List Manager | Task manager with priorities and completion tracking | Productivity | JSON |
 | 10 | Simple ATM / Bank System | OOP banking simulator with inheritance, PIN auth, transfers | Productivity | SQLite |
 | 11 | Personal Expense Tracker | Logs, categorizes, and summarizes expenses | Productivity | JSON |
 | 12 | Simple Inventory / Shop Management | Tracks stock, sales, restocking, and revenue | Productivity | JSON |
 | 13 | Library Management System | Tracks books, issues/returns, due dates, and late fees | Productivity | SQLite |
 | 14 | Word Frequency Counter | Analyzes text and ranks word frequency | Utility | — |
-
 
 ## ⭐ Technical Highlights
 
@@ -40,8 +39,11 @@ This repository documents my Python development journey, from foundational scrip
 - **Regex validation:** Contact Book validates phone numbers and email addresses with compiled `re` patterns and retry loops. The Library system's previously-unused `re` import now validates author and member names.
 - **Encapsulation:** `Account.balance` is a `@property` with a validating setter — direct assignment is checked against a per-account-type minimum (0 for standard/savings, `-overdraft_limit` for current), so an invalid balance can't be set even by accident.
 - **Context managers:** `Bank` implements `__enter__`/`__exit__`, so `with Bank() as bank:` guarantees the SQLite connection is closed — previously the connection was opened once and never explicitly closed.
+- **Modules & packages:** Contact Book is split across three files — `models.py` (the `Contact` class and its validation rules), `storage.py` (JSON persistence), `main.py` (CLI) — the first project in this repo organized as multiple files instead of one script.
+- **Sorting from scratch:** The Inventory system can sort items by price using a hand-written merge sort (`merge_sort_by_price`) instead of Python's built-in `sorted()`.
+- **Stack-based undo:** The ATM system tracks deposits/withdrawals during a login session on a hand-written `Stack`, powering an "Undo Last Transaction" feature.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
 ## 1. CLI Calculator
 A simple, robust command-line calculator.
@@ -155,7 +157,7 @@ A CLI tool that generates secure, customizable random passwords using `random` a
 - Option to exclude ambiguous characters (e.g. `l`, `1`, `O`, `0`)
 
 ## 8. Contact Book
-A CLI contact manager with persistent storage in JSON.
+A CLI contact manager with persistent storage in JSON, split across three files: `models.py` (the `Contact` class and validation), `storage.py` (JSON load/save), and `main.py` (the CLI).
 
 **Features**
 - Add contacts (name, phone, email) — phone and email validated with regex, with retry on invalid input
@@ -164,6 +166,7 @@ A CLI contact manager with persistent storage in JSON.
 - Update phone/email for an existing contact
 - Delete a contact (with confirmation)
 - Data persists in `contacts.json`
+- Validation logic lives in one place (`Contact.is_valid_phone`/`is_valid_email`) instead of being duplicated across the CLI
 
 **Possible future improvements**
 - Contact groups/categories
@@ -198,6 +201,7 @@ An object-oriented CLI banking simulator with PIN-protected accounts, deposits, 
 - Login with account number + PIN authentication
 - Deposit and withdraw funds — withdrawal rules differ by account type (standard balance check for Savings, overdraft allowance for Current) via polymorphic `withdraw()` overriding
 - Apply interest to Savings accounts on demand
+- Undo the last deposit or withdrawal from the current session, via a hand-written `Stack` (transfers and interest are not undoable in this version)
 - Transfer funds between two accounts (respects each account type's own withdrawal rules)
 - Full transaction history log per account, with timestamps
 - Balance is a validated `@property` — can't be set below the account type's allowed minimum
@@ -209,6 +213,7 @@ An object-oriented CLI banking simulator with PIN-protected accounts, deposits, 
 - Minimum balance requirements
 - Hash/encrypt PINs instead of storing them in plain text (essential for any real system)
 - Abstract base class (ABC) for `Account` to enforce subclasses implement required methods
+- Extend "Undo Last Transaction" to cover transfers and interest, not just deposits/withdrawals
 
 ## 11. Personal Expense Tracker
 A CLI tool to log, categorize, and analyze personal expenses, with persistent storage in JSON.
@@ -237,6 +242,7 @@ An object-oriented CLI system for managing a shop's inventory, with persistent s
 - Restock items
 - Low-stock alerts (flagged when quantity ≤ 5)
 - Track total revenue across all sales
+- View items sorted by price, using a hand-written merge sort (no `sorted()`)
 - View total inventory value (unsold stock worth), computed via `functools.reduce`
 - Data persists in `inventory.json`
 
