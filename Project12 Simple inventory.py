@@ -3,6 +3,31 @@ import os
 from functools import reduce
 DATA_FILE = "inventory.json"
 LOW_STOCK_THRESHOLD = 5
+
+def merge_sort_by_price(items):
+    """Sorts a list of Item objects by price, ascending — implemented from scratch
+    (no sorted()/list.sort()) to demonstrate merge sort on real data, not just numbers."""
+    if len(items) <= 1:
+        return items
+    mid = len(items) // 2
+    left = merge_sort_by_price(items[:mid])
+    right = merge_sort_by_price(items[mid:])
+    return _merge_by_price(left, right)
+
+def _merge_by_price(left, right):
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if left[i].price <= right[j].price:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result
+
 class Item:
     def __init__(self, item_id, name, price, quantity):
         self.item_id = item_id
@@ -83,6 +108,18 @@ def view_inventory(shop):
         alert = "LOW STOCK" if item.is_low_stock() else ""
         print(f"{item.item_id:<5}{item.name:<20}{item.price:<10}{item.quantity:<8}{alert:<10}")
     print("=" * 55)
+def view_inventory_sorted_by_price(shop):
+    if not shop.items:
+        print("Inventory is empty.")
+        return
+    sorted_items = merge_sort_by_price(list(shop.items.values()))
+    print("\n" + "=" * 55)
+    print(f"{'ID':<5}{'Name':<20}{'Price':<10}{'Qty':<8}{'Alert':<10}")
+    print("=" * 55)
+    for item in sorted_items:
+        alert = "LOW STOCK" if item.is_low_stock() else ""
+        print(f"{item.item_id:<5}{item.name:<20}{item.price:<10}{item.quantity:<8}{alert:<10}")
+    print("=" * 55)
 def sell_item(shop):
     item_id = input("Enter item ID to sell: ").strip()
     item = shop.items.get(item_id)
@@ -131,7 +168,8 @@ def print_menu():
     print("4. Restock Item")
     print("5. View Total Revenue")
     print("6. View Total Inventory Value")
-    print("7. Exit")
+    print("7. View Inventory Sorted by Price")
+    print("8. Exit")
     print("=" * 35)
 def main():
     shop = Shop()
@@ -151,6 +189,8 @@ def main():
         elif choice == "6":
             view_inventory_value(shop)
         elif choice == "7":
+            view_inventory_sorted_by_price(shop)
+        elif choice == "8":
             print("Goodbye!")
             break
         else:
