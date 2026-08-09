@@ -1,6 +1,21 @@
 import sqlite3
 from datetime import datetime
 from typing import Optional, List
+
+class Stack:
+    """LIFO stack used to power 'Undo Last Transaction'. Scoped to a single login
+    session — it resets when you log out, so undo only ever applies to actions
+    taken during the current session, not the account's full lifetime history."""
+    def __init__(self):
+        self._items = []
+    def push(self, item):
+        self._items.append(item)
+    def pop(self):
+        if self.is_empty():
+            raise IndexError("Nothing to undo.")
+        return self._items.pop()
+    def is_empty(self):
+        return len(self._items) == 0
 DB_FILE = "bank.db"
 class Account:
     def __init__(self, account_number: str, name: str, pin: str, balance: float = 0.0):
@@ -213,19 +228,24 @@ def main():
                     continue
                 print(f"\nWelcome, {account.name}! ({account})")
                 is_savings = isinstance(account, SavingsAccount)
-                menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Logout"
+                undo_stack = Stack()   # fresh per login session
+                menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Undo Last Transaction  7. Logout"
                 if is_savings:
-                    menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Apply Interest  7. Logout"
+                    menu = "\n1. Balance  2. Deposit  3. Withdraw  4. Transfer  5. History  6. Apply Interest  7. Undo Last Transaction  8. Logout"
                 print(menu)
                 while True:
                     op = input("Choose: ").strip()
                     if op == "1":
                         print(f"Balance: ₹{account.balance:.2f}")
                     elif op == "2":
-                        bank.deposit(account, get_amount("Deposit amount: "))
+                        amount = get_amount("Deposit amount: ")
+                        bank.deposit(account, amount)
+                        undo_stack.push(("deposit", amount))
                     elif op == "3":
                         try:
-                            bank.withdraw(account, get_amount("Withdraw amount: "))
+                            amount = get_amount("Withdraw amount: ")
+                            bank.withdraw(account, amount)
+                            undo_stack.push(("withdraw", amount))
                         except ValueError as e:
                             print(f"❌ {e}")
                     elif op == "4":
@@ -241,6 +261,23 @@ def main():
                     elif op == "6" and is_savings:
                         bank.apply_interest(account)
                     elif (op == "6" and not is_savings) or (op == "7" and is_savings):
+                        # Undo Last Transaction: only reverses deposits/withdrawals from
+                        # THIS session — transfers and interest are not undoable (their
+                        # effects touch a second account or a percentage, which makes a
+                        # clean reversal more involved than this simple version handles).
+                        try:
+                            action, amount = undo_stack.pop()
+                            if action == "deposit":
+                                bank.withdraw(account, amount)
+                                print(f"✅ Undone: reversed deposit of ₹{amount:.2f}")
+                            elif action == "withdraw":
+                                bank.deposit(account, amount)
+                                print(f"✅ Undone: reversed withdrawal of ₹{amount:.2f}")
+                        except IndexError as e:
+                            print(f"❌ {e}")
+                        except ValueError as e:
+                            print(f"❌ Could not undo: {e}")
+                    elif (op == "7" and not is_savings) or (op == "8" and is_savings):
                         print("Logged out.")
                         break
                     else:
